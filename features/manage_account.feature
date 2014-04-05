@@ -7,7 +7,7 @@ Feature: Manage a user account with different controls
     Background: users have been added to database 
 
         Given the following users exist:
-            | first name     | last name | email address          | password     |
+            | first_name     | last_name | email        | password     |
             |  User          | one       | testing1@test.com      | password     |
             |  User          | two       | testing2@test.com      | password     |
             |  User          | three     | testing3@test.com      | password     |
@@ -25,7 +25,7 @@ Feature: Manage a user account with different controls
     Scenario: Changing my password
         When I follow "Profile Preferences"
         And I follow "Change password" 
-        Then I should be on the "change password page"
+        Then I should be on "change password page"
         And I should see "enter current password"
         And I should see "enter new password" 
         And I should see "reenter new password"

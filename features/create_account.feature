@@ -6,7 +6,7 @@ Feature: create an account for a user in different criteria
     Background: users have been added to database
 
         Given the following users exist:
-            |first name |last name | email address   | password|
+            |first_name |last_name | email   | password|
             |first      |last      | 123@gmail.com   | password|
             |first      |last      | 124@gmail.com   | password|
             |first      |last      | 125@hotmail.com | password|

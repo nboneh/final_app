@@ -6,7 +6,7 @@ able to login with a valid account and password
 Background: users have been added to database 
 
   Given the following users exist:
-  | first name     | last name | email address          | password     | id |
+  | first_name     | last_name | email          | password     | id |
   |  User          | one       | testing1@test.com      | password     |  1 |
   |  User          | two       | testing2@test.com      | password     |  2 |
   |  User          | three     | testing3@test.com      | password     |  3 |
@@ -19,7 +19,7 @@ Background: users have been added to database
   |  User          | ten       | testing10@test.com     | password     | 10 |
   
   And the following friendships exist:
-  | Sender | Receiver | Status |
+  | sender_id | receiver_id | status |
   | 1      | 2        | "Accepted" |
   | 1      | 3        | "Rejected" | 
   And I am logged in as "User one"
@@ -42,5 +42,4 @@ Scenario: Create Post on wall
   Then I should not see "Hello!"
   And I should not see "Hello2!"
 
-Scenario: Posting on friend's profile
-  When 
+Scenario: Posting on friend's profile 

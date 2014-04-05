@@ -13,7 +13,7 @@
 # A much better approach is to write your own higher level step definitions, following
 # the advice in the following blog posts:
 #
-# * http://benmabey.com/2008/05/19/imperative-vs-declarative-scenarios-in-user-stories.html
+# * http://benmabey.com/2008/05/19/imperative-vs-declarative-scenarios-in-user-stories.hqml
 # * http://dannorth.net/2011/01/31/whose-domain-is-it-anyway/
 # * http://elabs.se/blog/15-you-re-cuking-it-wrong
 #
@@ -251,4 +251,20 @@ end
 
 Then /^show me the page$/ do
   save_and_open_page
+end
+
+#Then /I should (not )?see "(.*)"/ do |notsee, string|
+#  if notsee
+#    page.body.scan(string).length.should == 0
+#  else
+#     page.body.scan(string).length.should > 0 
+#  end
+#end
+
+Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
+  #  ensure that that e1 occurs before e2.
+  #  page.body is the entire content of the page as a string.
+ firstPos = page.body.index(e1)
+  secondPos = page.body.index(e2)
+  firstPos.should < secondPos
 end

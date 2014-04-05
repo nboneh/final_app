@@ -5,7 +5,7 @@ Feature: Allow valid users to send each other friend requests
     Background: users have been added to database 
 
         Given the following users exist:
-            | first name     | last name | email address          | password     |
+            | first_name     | last_name | email          | password     |
             |  User          | one       | testing1@test.com      | password     |
             |  User          | two       | testing2@test.com      | password     |
             |  User          | three     | testing3@test.com      | password     |
@@ -34,8 +34,8 @@ Feature: Allow valid users to send each other friend requests
     Scenario: Accepting a friend request
         When User two sends User one a friend request
         And I follow "new friend request/s"
-        Then I should be on the "profile preferences page"
-        When I Press "Accept User two friend request" 
+        Then I should be on "profile preferences page"
+        When I press "Accept User two friend request" 
         And I follow "User two profile"
         Then I should see "You and user two are friends"
         When I follow "newsfeed"
@@ -44,8 +44,8 @@ Feature: Allow valid users to send each other friend requests
     Scenario: Rejecting a friend request
         When User two sends User one a friend request
         And I follow "new friend request/s"
-        Then I should be on the "profile preferences page"
-        When I Press "Reject User two friend request" 
+        Then I should be on "profile preferences page"
+        When I press "Reject User two friend request" 
         And I follow "User two profile"
         Then I should see "You and user two are not friends"
         When I follow "newsfeed"
@@ -64,4 +64,4 @@ Feature: Allow valid users to send each other friend requests
         And I fill in the following:
             | Search | User |
         And I press "Submit"
-        Then I should see all users
+        Then I should see all of the users

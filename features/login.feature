@@ -6,7 +6,7 @@ Feature: Allow valid users to login with the correct password
     Background: users have been added to database 
 
         Given the following users exist:
-            | first name     | last name | email address          | password     |
+            | first_name     | last_name | email          | password     |
             |  User          | one       | testing1@test.com      | password     |
             |  User          | two       | testing2@test.com      | password     |
             |  User          | three     | testing3@test.com      | password     |
@@ -25,10 +25,10 @@ Feature: Allow valid users to login with the correct password
             | Email     | testing1@test.com   |
             | Password  | password            |
         When I press "Login"
-        Then I should be on the "newsfeed page"
+        Then I should be on "newsfeed page"
         And I should see "Welcome User one"
         When I follow "profile"
-        Then I sould be on the "profile page" 
+        Then I should be on "profile page" 
         And I should see "Pending Friend Requests" 
         And I should see "Wall"
 
@@ -37,7 +37,7 @@ Feature: Allow valid users to login with the correct password
             | Email     | testing1@test.com   |
             | Password  | notmypassword1234   |
         When I press "Login"
-        Then I should be on the "home page"
+        Then I should be on "home page"
         And I should see "Login Failure"
         And I should see "Username or Password incorrect"
 
