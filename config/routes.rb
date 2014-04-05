@@ -10,6 +10,8 @@ FinalApp::Application.routes.draw do
 
   get "user/newfeed"
 
+  get "login"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
