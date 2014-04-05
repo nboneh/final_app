@@ -15,7 +15,7 @@ Feature: create an account for a user in different criteria
         And I am on the register page
 
     Scenario: create an account successfullly
-        When I fill in following information:
+        When I fill in the following:
             | First Name    | first         |
             | Last Name     | last          |
             | Email Address | 127@gmail.com |
@@ -31,7 +31,7 @@ Feature: create an account for a user in different criteria
         Then I should be on "newsfeed page"
 
     Scenario: create an account without email address
-        When I fill in following information:
+        When I fill in the following:
             | First Name    | first         |
             | Last Name     | last          |
             | Password      | password      |
@@ -41,7 +41,7 @@ Feature: create an account for a user in different criteria
         And I should see "Please fill in email address"
 
     Scenario: create an account without password
-        When I fill in following information:
+        When I fill in the following:
             | First Name    | first         |
             | Last Name     | last          |
             | Email Address | 128@gmail.com |
@@ -50,7 +50,7 @@ Feature: create an account for a user in different criteria
         And I should see "Please fill in password"
 
     Scenario: create an account with an existing email address
-        When I fill in the following information:
+        When I fill in the following:
             | First Name    | first         |
             | Last Name     | last          |
             | Email Address | 124@gmail.com |
@@ -61,7 +61,7 @@ Feature: create an account for a user in different criteria
         And I should see "The email address exists"
 
     Scenario: create an account without reentering the password
-        When I fill in following information:
+        When I fill in the following:
             | First Name    | first         |
             | Last Name     | last          |
             | Email Address | 129@gmail.com |
@@ -71,7 +71,7 @@ Feature: create an account for a user in different criteria
         And I should see "Please enter your password again"
 
     Scenario: create an account without reentering the same password
-        When I fill in following information:
+        When I fill in the following:
             | First Name    | first         |
             | Last Name     | last          |
             | Email Address | 120@gmail.com |

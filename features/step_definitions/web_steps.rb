@@ -268,3 +268,8 @@ Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   secondPos = page.body.index(e2)
   firstPos.should < secondPos
 end
+
+When(/^I fill in the following information:$/) do |table|
+  
+end
+
