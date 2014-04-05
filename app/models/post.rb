@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :content, :post_time
-  belongs_to :User
-  belongs_to :User
+    belongs_to :sender, :class_name => 'User', :foreign_key => 'sender_pid'
+    belongs_to :receiver, :class_name => 'User', :foreign_key => 'receiver_pid'
+  attr_accessible :content
 end
