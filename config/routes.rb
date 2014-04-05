@@ -1,4 +1,15 @@
 FinalApp::Application.routes.draw do
+  get "friendship/find"
+
+  get "friendship/create"
+
+  get "friendship/new"
+  get "user/profile"
+
+  get "user/preferences"
+
+  get "user/newfeed"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
