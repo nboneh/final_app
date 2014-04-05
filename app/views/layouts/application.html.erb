@@ -16,11 +16,12 @@
 </div>
 </header>
 <div class="container">
-<div id="sidebar"></div>
+<div id="sidebar">
 <%= link_to image_tag("rails.png", alt: "Profile Pictures"), 'profile' %>
 <li><%= link_to "find_friends",    '#' %></li>
 <li><%= link_to "preferences",     '#' %></li>
 <li><%= link_to "logout",     '#' %></li>
+</div>
 <div id="content"></div>
 <%= yield %>
 <div id="footer"></div>
