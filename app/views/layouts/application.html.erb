@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FinalApp</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+<title>MyBook | <%= yield(:title) %> </title>
+<%= stylesheet_link_tag    "application", :media => "all" %>
+<%= javascript_include_tag "application" %>
+<%= csrf_meta_tags %>
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
 </head>
 <body>
-
+<header class="mainheader">
+<div class="mainheader">
+<%= link_to image_tag("MyBookBanner.png", alt: "Welcome to MyBook"), 'Login' %>
+</div>
+</header>
+<div class="container">
+<div id="sidebar">
+<%= link_to image_tag("rails.png", alt: "Profile Pictures"), 'profile' %>
+<li><%= link_to "find_friends",    '#' %></li>
+<li><%= link_to "preferences",     '#' %></li>
+<li><%= link_to "logout",     '#' %></li>
+</div>
+<div id="content"></div>
 <%= yield %>
-
+<div id="footer"></div>
+<p> MyBook was created as a student project for CSCI 3308. It was developed in Ruby on Rails. </p>
+</div>
 </body>
 </html>
