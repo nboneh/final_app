@@ -9,7 +9,7 @@ FinalApp::Application.routes.draw do
   get "user/preferences"
 
   get "user/newfeed"
-
+  match '/login',  to: 'session#new',         via: 'get'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
