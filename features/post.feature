@@ -22,7 +22,7 @@ Background: users have been added to database
   | sender_id | receiver_id | status |
   | 1      | 2        | "Accepted" |
   | 1      | 3        | "Rejected" | 
-  And I am logged in as "User one"
+  And I am logged in as "User one" with password "password"
   And I am on the newfeed page
 
 Scenario: Create Post on wall
@@ -35,10 +35,10 @@ Scenario: Create Post on wall
   And I press "Post"
   Then I should see "Hello2!" before "Hello!"
   When I log out 
-  And l log in as "User two"
+  And I log in as "User two" with password "password"
   Then I should see "Hello2!" before "Hello!"
   When I log out
-  And I log in as "User three"
+  And I log in as "User three" with password "password"
   Then I should not see "Hello!"
   And I should not see "Hello2!"
 

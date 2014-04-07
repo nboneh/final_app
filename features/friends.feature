@@ -17,7 +17,7 @@ Feature: Allow valid users to send each other friend requests
             |  User          | nine      | testing9@test.com      | password     |
             |  User          | ten       | testing10@test.com     | password     |
 
-        And I am logged in as User one
+        And I am logged in as "User one" with password "password"
         And I am on the newsfeed page
 
     Scenario: Sending a friend request 
@@ -28,11 +28,11 @@ Feature: Allow valid users to send each other friend requests
         Then I should see "User two"
         When I press "add User two"
         And I log out
-        And I log in as "User two"
+        And I log in as "User two" with password "password"
         Then I should see "new friend request/s"
 
     Scenario: Accepting a friend request
-        When User two sends User one a friend request
+        When "User two" sends "User one" a friend request
         And I follow "new friend request/s"
         Then I should be on "profile preferences page"
         When I press "Accept User two friend request" 
@@ -42,7 +42,7 @@ Feature: Allow valid users to send each other friend requests
         Then I should not see "new friend request/s" 
 
     Scenario: Rejecting a friend request
-        When User two sends User one a friend request
+        When "User two" sends "User one" a friend request
         And I follow "new friend request/s"
         Then I should be on "profile preferences page"
         When I press "Reject User two friend request" 
