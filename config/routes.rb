@@ -7,8 +7,9 @@ FinalApp::Application.routes.draw do
   get "user/profile"
 
   get "user/preferences"
-
   get "user/newfeed"
+  resources :users
+  match '/signup',  to: 'user#new',            via: 'get'
   match '/login',  to: 'session#new',         via: 'get'
 
   # The priority is based upon order of creation:

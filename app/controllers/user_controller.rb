@@ -7,4 +7,8 @@ class UserController < ApplicationController
 
   def newfeed
   end
+
+  def new
+  	@user = User.new
+  end
 end
