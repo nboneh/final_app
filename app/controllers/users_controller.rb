@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   def profile
   end
 
@@ -9,6 +9,18 @@ class UserController < ApplicationController
   end
 
   def new
+  	#@user = User.new(params[:user])
+  	@user = User.new(user_params)
+  	if @user.save
+      # Handle a successful save.
+      flash[:success] = "Register Successful!"
+      redirect_to :controller => 'session', :action => 'new'
+    else
+      render 'new'
+    end
+  end
+
+  def create
   	#@user = User.new(params[:user])
   	@user = User.new(user_params)
   	if @user.save

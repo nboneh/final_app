@@ -1,4 +1,6 @@
 FinalApp::Application.routes.draw do
+  get "shared/_error_messages"
+
   get "friendship/find"
 
   get "friendship/create"
@@ -9,7 +11,7 @@ FinalApp::Application.routes.draw do
   get "user/preferences"
   get "user/newfeed"
   resources :users
-  match '/signup',  to: 'user#new',            via: 'get'
+  match '/signup',  to: 'users#new',            via: 'get'
   match '/login',  to: 'session#new',         via: 'get'
 
   # The priority is based upon order of creation:
