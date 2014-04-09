@@ -3,6 +3,8 @@
     <% if (@failed==true) then %> 
         <h2 id="error">
             Login Failed
+            <br>
+            Invalid email/password combination
         </h2>
     <% end%>
     <% if (flash[:success] != nil) then %> 
