@@ -5,31 +5,31 @@ class UsersController < ApplicationController
   def preferences
   end
 
-  def newfeed
+  def newsfeed
   end
 
   def login
   end
 
   def new
-    if flash[:user] == nil
+    if flash[:userReg] == nil
       @user = User.new(user_params)
     else 
-      @user = flash[:user]
+      @user = flash[:userReg]
     end
   end
 
 
 def create
-        #@user = User.new(params[:user])
-    @user = User.new(params[:user])
+        #@user = User.new(params[:user]
+    @user = User.new(user_params)
     if @user.save
       # Handle a successful save.
       flash[:success] = "Register Successful!"
       redirect_to login_path
     else
       flash[:error] = "Register Failed!"
-      flash[:user] = @user
+      flash[:userReg] = @user
       redirect_to register_path
     end
   end

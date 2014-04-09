@@ -9,11 +9,14 @@ FinalApp::Application.routes.draw do
   get "user/profile"
 
   get "user/preferences"
-  get "user/newfeed"
   
+  resources :session, only: [:new, :create]
+  match '/login',  to: 'session#new',   via: 'get'
+  match '/login', to: 'session#create', via: 'post'
+  match '/logout',  to: 'session#destroy',   via: 'delete'
   resources :users
   match '/register',  to: 'users#new',   via: 'get'
-  match '/login',  to: 'users#login',   via: 'get'
+  match '/newsfeed', to: 'users#newsfeed', via: 'get'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

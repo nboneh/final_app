@@ -37,7 +37,6 @@ Feature: Allow valid users to login with the correct password
             | Email     | testing1@test.com   |
             | Password  | notmypassword1234   |
         When I press "Login"
-        Then I should be on the home page
-        And I should see "Login Failure"
-        And I should see "Username or Password incorrect"
+        Then I should be on the login page
+        And I should see "Invalid email/password combination"
 
