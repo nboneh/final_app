@@ -18,7 +18,6 @@ Feature: Allow valid users to send each other friend requests
             |  User          | ten       | testing10@test.com     | password     |
 
         And I am logged in as "User one" with password "password"
-        And I am on the newsfeed page
 
     Scenario: Sending a friend request 
         When I follow "Find Friends" 

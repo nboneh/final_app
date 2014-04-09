@@ -23,7 +23,6 @@ Background: users have been added to database
   | 1      | 2        | "Accepted" |
   | 1      | 3        | "Rejected" | 
   And I am logged in as "User one" with password "password"
-  And I am on the newfeed page
 
 Scenario: Create Post on wall
   When I fill in the following:
