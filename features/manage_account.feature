@@ -20,7 +20,6 @@ Feature: Manage a user account with different controls
             |  User          | ten       | testing10@test.com     | password     |
 
         And I am logged in as "User one" with password "password"
-        And I am on the newsfeed page
 
     Scenario: Changing my password
         When I follow "Profile Preferences"
