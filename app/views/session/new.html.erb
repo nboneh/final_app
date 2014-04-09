@@ -1,0 +1,24 @@
+<h1>Login</h1>
+<div>
+    <% if (@failed==true) then %> 
+        <h2 id="error">
+            Login Failed
+        </h2>
+    <% end%>
+    <% if (flash[:success] != nil) then %> 
+        <h2 id="good">
+             Register Successful!
+        </h2>
+    <% end%>
+    <%= form_for(:session, url: login_path) do |f| %>      
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.submit "Login" %>
+    <% end %>
+
+    <p>New user? <%= link_to "Sign up now!", register_path %></p>
+</div>
