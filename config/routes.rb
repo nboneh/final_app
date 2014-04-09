@@ -10,9 +10,10 @@ FinalApp::Application.routes.draw do
 
   get "user/preferences"
   get "user/newfeed"
+  
   resources :users
-  match '/signup',  to: 'users#new',            via: 'get'
-  match '/login',  to: 'session#new',         via: 'get'
+  match '/register',  to: 'users#new',   via: 'get'
+  match '/login',  to: 'users#index',   via: 'get'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

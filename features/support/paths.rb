@@ -14,7 +14,8 @@ module NavigationHelpers
     case page_name
 
     when /^the (MyBook )?home\s?page$/ then '/'
-    when /^the (Login) page$/ then '/login'
+    when /^the (login) page$/ then '/login'
+    when /^the (register) page$/ then '/register'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

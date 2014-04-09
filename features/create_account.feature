@@ -20,9 +20,9 @@ Feature: create an account for a user in different criteria
             | Last Name     | last          |
             | Email Address | 127@gmail.com |
             | Password      | password      |
-            | Reenter       | password      |
+            | Reenter Password       | password      |
         And I press "Register"
-        Then I should be on home page
+        Then I should be on "login page"
         And I should see "Register Successful!"
         When I fill in the following:
             | Email     | 127@gmail.com       |
@@ -35,7 +35,7 @@ Feature: create an account for a user in different criteria
             | First Name    | first         |
             | Last Name     | last          |
             | Password      | password      |
-            | Reenter       | password      |
+            | Reenter Password      | password      |
         And I press "Register"
         Then I should see "Register Failed!"
         And I should see "Please fill in email address"
@@ -55,7 +55,7 @@ Feature: create an account for a user in different criteria
             | Last Name     | last          |
             | Email Address | 124@gmail.com |
             | Password      | password      |
-            | Reenter       | password      |
+            | Reenter Password      | password      |
         And I press "Register"
         Then I should see "Register Failed!"
         And I should see "The email address exists"
@@ -76,7 +76,7 @@ Feature: create an account for a user in different criteria
             | Last Name     | last          |
             | Email Address | 120@gmail.com |
             | Password      | password      |
-            | Reenter       | password1     |
+            | Reenter Password      | password1     |
         And I press "Finish"
         Then I should see "Sign up failed"
         And I should see "Please reenter the same password"
