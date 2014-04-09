@@ -6,7 +6,7 @@ Given /the following users exist/ do |users_table|
   end
 end
 
-Given /^I am logged in as "(.*?)" with password "(.*?)"$/ do |user, pass|
+Given /^I am logged in as "(.*)" with password "(.*)"$/ do |user, pass|
    step "I log in as \"#{user}\" with password \"#{pass}\""
 end
 

@@ -10,9 +10,6 @@
 <![endif]-->
 </head>
 <body>
-<% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>"><%= value %></div>
- <% end %>
 <header class="mainheader">
 <div class="mainheader">
 <%= link_to image_tag("MyBookBanner.png", alt: "Welcome to MyBook"), newsfeed_path %>
