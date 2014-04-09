@@ -10,7 +10,7 @@ class SessionController < ApplicationController
       		redirect_to newsfeed_path
 	    else
 	    	# Create an error message and re-render the signin form.
-	    	@failed = true
+	    	flash[:failed] = true
             redirect_to login_path
 	  	end
   	end
