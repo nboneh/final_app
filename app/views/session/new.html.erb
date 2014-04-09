@@ -1,16 +1,17 @@
 <h1>Sigin In</h1>
 <div>
-	<form accept-charset="UTF-8" action="/users" class="new_user"
-	      id="new_user" method="post">
+	<div>
+    <%= form_for(:session, url: login_path) do |f| %>
 
-	  <label for="user_email">Email</label>
-	  <input id="user_email" name="user[email]" type="text" />
+      <%= f.label :email %>
+      <%= f.text_field :email %>
 
-	  <label for="user_password">Password</label>
-	  <input id="user_password" name="user[password]"
-	         type="password" />
+      <%= f.label :password %>
+      <%= f.password_field :password %>
 
-	  <input class="btn btn-large btn-primary" name="commit" type="submit"
-	         value="Create my account" />
-	</form>
+      <%= f.submit "Login", :id => 'Login' %>
+    <% end %>
+
+    <p>New user? <%= link_to "Sign up now!", register_path %></p>
+  </div>
 </div>
