@@ -10,8 +10,8 @@ class SessionController < ApplicationController
       		redirect_to newsfeed_path
 	    else
 	    	# Create an error message and re-render the signin form.
-	    	flash.now[:error] = 'Invalid email/password combination'
-	    	render 'new'
+	    	@failed = true
+            redirect_to login_path
 	  	end
   	end
 
