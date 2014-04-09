@@ -22,13 +22,13 @@ Feature: create an account for a user in different criteria
             | Password      | password      |
             | Reenter Password       | password      |
         And I press "Register"
-        Then I should be on "login page"
+        Then I should be on the login page
         And I should see "Register Successful!"
         When I fill in the following:
             | Email     | 127@gmail.com       |
             | Password  | password            |
         And I press "Login"
-        Then I should be on "newsfeed page"
+        Then I should be on the newsfeed page
 
     Scenario: create an account without email address
         When I fill in the following:
@@ -38,7 +38,7 @@ Feature: create an account for a user in different criteria
             | Reenter Password      | password      |
         And I press "Register"
         Then I should see "Register Failed!"
-        And I should see "Please fill in email address"
+        And I should see "Email can't be blank"
 
     Scenario: create an account without password
         When I fill in the following:
@@ -47,7 +47,7 @@ Feature: create an account for a user in different criteria
             | Email Address | 128@gmail.com |
         And I press "Register"
         Then I should see "Register Failed!"
-        And I should see "Please fill in password"
+        And I should see "Password is too short"
 
     Scenario: create an account with an existing email address
         When I fill in the following:
@@ -58,17 +58,7 @@ Feature: create an account for a user in different criteria
             | Reenter Password      | password      |
         And I press "Register"
         Then I should see "Register Failed!"
-        And I should see "The email address exists"
-
-    Scenario: create an account without reentering the password
-        When I fill in the following:
-            | First Name    | first         |
-            | Last Name     | last          |
-            | Email Address | 129@gmail.com |
-            | Password      | password      |
-        And I press "Register"
-        Then I should see "Register Failed!"
-        And I should see "Please enter your password again"
+        And I should see "Email has already been taken"
 
     Scenario: create an account without reentering the same password
         When I fill in the following:
@@ -77,6 +67,6 @@ Feature: create an account for a user in different criteria
             | Email Address | 120@gmail.com |
             | Password      | password      |
             | Reenter Password      | password1     |
-        And I press "Finish"
-        Then I should see "Sign up failed"
-        And I should see "Please reenter the same password"
+        And I press "Register"
+        Then I should see "Register Failed!"
+        And I should see "Password doesn't match confirmation"

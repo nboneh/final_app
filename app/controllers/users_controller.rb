@@ -12,20 +12,25 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new(user_params)
+    if flash[:user] == nil
+      @user = User.new(user_params)
+    else 
+      @user = flash[:user]
+    end
   end
 
 
-    def create
+def create
         #@user = User.new(params[:user])
     @user = User.new(params[:user])
     if @user.save
-          # Handle a successful save.
-            flash[:success] = "Register Successful!"
-            redirect_to "/login"
+      # Handle a successful save.
+      flash[:success] = "Register Successful!"
+      redirect_to login_path
     else
       flash[:error] = "Register Failed!"
-      redirect_to "/register"
+      flash[:user] = @user
+      redirect_to register_path
     end
   end
 

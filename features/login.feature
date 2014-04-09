@@ -18,17 +18,17 @@ Feature: Allow valid users to login with the correct password
             |  User          | nine      | testing9@test.com      | password     |
             |  User          | ten       | testing10@test.com     | password     |
 
-        And I am on the home page
+        And I am on the login page
 
     Scenario: Login successfully
         When I fill in the following:
             | Email     | testing1@test.com   |
             | Password  | password            |
         When I press "Login"
-        Then I should be on "newsfeed page"
+        Then I should be on the newsfeed page
         And I should see "Welcome User one"
         When I follow "profile"
-        Then I should be on "profile page" 
+        Then I should be on the profile page 
         And I should see "Pending Friend Requests" 
         And I should see "Wall"
 
@@ -37,7 +37,7 @@ Feature: Allow valid users to login with the correct password
             | Email     | testing1@test.com   |
             | Password  | notmypassword1234   |
         When I press "Login"
-        Then I should be on "home page"
+        Then I should be on the home page
         And I should see "Login Failure"
         And I should see "Username or Password incorrect"
 
