@@ -41,4 +41,16 @@ Scenario: Create Post on wall
   Then I should not see "Hello!"
   And I should not see "Hello2!"
 
-Scenario: Posting on friend's profile 
+Scenario: Posting on friend's profile
+  When I go to User two's profile 
+  And I fill in the following:
+       |Post Here| Hello! |
+  And I press "Post"
+  Then I should see "Hello!"
+
+Scenario: Not being able to post on a nonfriend profile
+  When I go to User three's profile
+  Then I should not see "Post Here"
+
+
+  

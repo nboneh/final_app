@@ -13,9 +13,12 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-    when /^the (MyBook )?home\s?page$/ then '/'
-    when /^the (login) page$/ then '/login'
-    when /^the (register) page$/ then '/register'
+    when /^the (MyBook )?home\s?page$/ then root_path
+    when /^the (login) page$/ then login_path
+    when /^the (register) page$/ then register_path
+    when /^(.*?)'s profile$/ then
+    usersplit = $1.split(' ')
+    user_profile_path(User.where(:first_name => usersplit[0], :last_name => usersplit[1]).first.id)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
