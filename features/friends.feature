@@ -22,8 +22,8 @@ Feature: Allow valid users to send each other friend requests
     Scenario: Sending a friend request 
         When I follow "Find Friends" 
         And I fill in the following:
-            | Search | testing2@test.com    |
-        And I press "Submit"
+            | Name | testing2@test.com    |
+        And I press "Search"
         Then I should see "User two"
         When I press "add User two"
         And I log out
