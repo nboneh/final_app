@@ -1,4 +1,5 @@
 class FriendshipsController < ApplicationController
+    
     def find
         name=params[:user]
         if(!name.nil?)

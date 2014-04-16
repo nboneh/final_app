@@ -17,7 +17,8 @@ FinalApp::Application.routes.draw do
   resources :users
   match '/register',  to: 'users#new',   via: 'get'
   match '/newsfeed', to: 'users#newsfeed', via: 'get'
-
+  match '/findfriends', to: 'friendships#find', via: 'get'
+  match '/preferences', to: 'users#preferences', via: 'get'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -20,10 +20,10 @@ Feature: Allow valid users to send each other friend requests
         And I am logged in as "User one" with password "password"
 
     Scenario: Sending a friend request 
-        When I follow "Find Friends" 
-        And I fill in the following:
-            | Name | testing2@test.com    |
+        When I follow "Find Friends"
+        And I fill in "Name" with "tesing2@test.com"
         And I press "Search"
+        Then show me the page
         Then I should see "User two"
         When I press "add User two"
         And I log out
