@@ -24,7 +24,7 @@ Feature: Allow valid users to send each other friend requests
         And I fill in "name" with "testing2@test.com"
         And I press "Search"
         Then I should see "User two"
-        When I press "add User two"
+        When I press "Add User two"
         And I log out
         And I log in as "User two" with password "password"
         Then I should see "new friend request/s"

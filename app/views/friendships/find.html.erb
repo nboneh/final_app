@@ -9,6 +9,13 @@
 <tr>
     <td><%= user.first_name %></td>
     <td><%= user.last_name %></td>
+    <td>
+        <%= form_tag("/addfriend", method: "post") do %>
+            <%= hidden_field_tag(:user_id, "#{user.id}") %>
+            <%= hidden_field_tag(:user_email, "#{user.email}") %>
+        <%= submit_tag("Add #{user.first_name} #{user.last_name}")%>
+    <% end %>
+    </td>
 </tr>
   <%end %>
 <% end %>

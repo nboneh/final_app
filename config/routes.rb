@@ -18,6 +18,7 @@ FinalApp::Application.routes.draw do
   match '/register',  to: 'users#new',   via: 'get'
   match '/newsfeed', to: 'users#newsfeed', via: 'get'
   match '/findfriends', to: 'friendships#find', via: 'get'
+  match '/addfriend', to: 'friendships#create', via: 'post'
   match '/preferences', to: 'users#preferences', via: 'get'
   # The priority is based upon order of creation:
   # first created -> highest priority.
