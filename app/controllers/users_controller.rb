@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  def profile
+  def show
+  #profile
   end
 
   def preferences

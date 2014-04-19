@@ -12,12 +12,12 @@ end
 
 
 Then /I should see (all|none) of the users/ do |query|
-   users = Users.find(:all)
+   users = User.all
     for user in users
       if query == "all"
-        step %{I should see "#{user}"}
+        step %{I should see "#{user.first_name} #{user.last_name}"}
       else 
-        step %{I should not see "#{user}"}
+        step %{I should not see "#{user.first_name} #{user.last_name}"}
       end 
     end
 

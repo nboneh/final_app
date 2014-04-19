@@ -18,7 +18,7 @@ module NavigationHelpers
     when /^the (register) page$/ then register_path
     when /^(.*?)'s profile$/ then
     usersplit = $1.split(' ')
-    profile_path(User.where(:first_name => usersplit[0], :last_name => usersplit[1]).first)
+    user_path(User.where(:first_name => usersplit[0], :last_name => usersplit[1]).first)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

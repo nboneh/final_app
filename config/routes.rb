@@ -6,7 +6,6 @@ FinalApp::Application.routes.draw do
   get "friendships/create"
 
   get "friendships/new"
-  get "user/profile"
 
   get "user/preferences"
   
@@ -17,7 +16,6 @@ FinalApp::Application.routes.draw do
   resources :users
   match '/register',  to: 'users#new',   via: 'get'
   match '/newsfeed', to: 'users#newsfeed', via: 'get'
-  match '/profile/:id', to: 'users#show', via: 'get' 
   match '/findfriends', to: 'friendships#find', via: 'get'
   match '/addfriend', to: 'friendships#create', via: 'post'
   match '/preferences', to: 'users#preferences', via: 'get'
