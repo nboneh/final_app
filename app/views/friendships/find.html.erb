@@ -1,0 +1,21 @@
+<%= form_tag("/findfriends", method: "get") do %>
+    <%= label_tag(:user, "Search for:") %>
+<%= text_field_tag("name") %>
+<%= submit_tag("Search", :id => "Search")%>
+<% end %>
+<% if (@options != nil) then %>
+    <% @options.each do |user| %>
+    Name: <br />
+<tr>
+    <td><%= user.first_name %></td>
+    <td><%= user.last_name %></td>
+    <td>
+        <%= form_tag("/addfriend", method: "post") do %>
+            <%= hidden_field_tag(:user_id, "#{user.id}") %>
+            <%= hidden_field_tag(:user_email, "#{user.email}") %>
+        <%= submit_tag("Add #{user.first_name} #{user.last_name}")%>
+    <% end %>
+    </td>
+</tr>
+  <%end %>
+<% end %>

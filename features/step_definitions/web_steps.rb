@@ -78,7 +78,7 @@ end
 #
 When /^(?:|I )fill in the following:$/ do |fields|
   fields.rows_hash.each do |name, value|
-    When %{I fill in "#{name}" with "#{value}"}
+    step %{I fill in "#{name}" with "#{value}"}
   end
 end
 
@@ -268,3 +268,5 @@ Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   secondPos = page.body.index(e2)
   firstPos.should < secondPos
 end
+
+

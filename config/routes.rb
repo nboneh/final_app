@@ -1,15 +1,25 @@
 FinalApp::Application.routes.draw do
-  get "friendship/find"
+  get "shared/_error_messages"
 
-  get "friendship/create"
+  get "friendships/find"
 
-  get "friendship/new"
+  get "friendships/create"
+
+  get "friendships/new"
   get "user/profile"
 
   get "user/preferences"
-
-  get "user/newfeed"
-
+  
+  resources :session, only: [:new, :create]
+  match '/login',  to: 'session#new',   via: 'get'
+  match '/login', to: 'session#create', via: 'post'
+  match '/logout',  to: 'session#destroy',   via: 'delete'
+  resources :users
+  match '/register',  to: 'users#new',   via: 'get'
+  match '/newsfeed', to: 'users#newsfeed', via: 'get'
+  match '/findfriends', to: 'friendships#find', via: 'get'
+  match '/addfriend', to: 'friendships#create', via: 'post'
+  match '/preferences', to: 'users#preferences', via: 'get'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

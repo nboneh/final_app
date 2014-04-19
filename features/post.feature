@@ -22,8 +22,7 @@ Background: users have been added to database
   | sender_id | receiver_id | status |
   | 1      | 2        | "Accepted" |
   | 1      | 3        | "Rejected" | 
-  And I am logged in as "User one"
-  And I am on the newfeed page
+  And I am logged in as "User one" with password "password"
 
 Scenario: Create Post on wall
   When I fill in the following:
@@ -35,11 +34,23 @@ Scenario: Create Post on wall
   And I press "Post"
   Then I should see "Hello2!" before "Hello!"
   When I log out 
-  And l log in as "User two"
+  And I log in as "User two" with password "password"
   Then I should see "Hello2!" before "Hello!"
   When I log out
-  And I log in as "User three"
+  And I log in as "User three" with password "password"
   Then I should not see "Hello!"
   And I should not see "Hello2!"
 
-Scenario: Posting on friend's profile 
+Scenario: Posting on friend's profile
+  When I go to User two's profile 
+  And I fill in the following:
+       |Post Here| Hello! |
+  And I press "Post"
+  Then I should see "Hello!"
+
+Scenario: Not being able to post on a nonfriend profile
+  When I go to User three's profile
+  Then I should not see "Post Here"
+
+
+  

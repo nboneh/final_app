@@ -12,20 +12,22 @@
 <body>
 <header class="mainheader">
 <div class="mainheader">
-<%= link_to image_tag("MyBookBanner.png", alt: "Welcome to MyBook"), 'Login' %>
+<%= link_to image_tag("MyBookBanner.png", alt: "Welcome to MyBook"), newsfeed_path %>
 </div>
 </header>
 <div class="container">
 <div id="sidebar">
 <%= link_to image_tag("rails.png", alt: "Profile Pictures"), 'profile' %>
-<li><%= link_to "find_friends",    '#' %></li>
-<li><%= link_to "preferences",     '#' %></li>
-<li><%= link_to "logout",     '#' %></li>
+<li><%= link_to "Find Friends",    '/findfriends' %></li>
+<li><%= link_to "preferences",     '/preferences' %></li>
+<li><%= link_to "logout",     '/logout' %></li>
 </div>
-<div id="content"></div>
+<div id="content">
 <%= yield %>
-<div id="footer"></div>
+</div>
+<div id="footer">
 <p> MyBook was created as a student project for CSCI 3308. It was developed in Ruby on Rails. </p>
+</div>
 </div>
 </body>
 </html>
