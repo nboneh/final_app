@@ -15,7 +15,7 @@ Feature: create an account for a user in different criteria
         And I am on the register page
 
     Scenario: create an account successfullly
-        When I fill in following information:
+        When I fill in following:
             | First Name    | first         |
             | Last Name     | last          |
             | Email Address | 127@gmail.com |
