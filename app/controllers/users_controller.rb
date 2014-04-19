@@ -6,6 +6,9 @@ class UsersController < ApplicationController
   end
 
   def newsfeed
+    if !signed_in?
+      redirect_to login_path
+    end
   end
 
   def login

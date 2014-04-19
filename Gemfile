@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'railties', '4.0.0'
+gem 'rails', '4.0.0'
 gem 'bcrypt-ruby', '3.0.0'
 gem 'strong_parameters'
 
@@ -30,8 +31,8 @@ end
 # in production environments by default.
 group :assets do
   gem 'therubyracer'              
-  gem 'sass-rails', "  ~> 3.2"
-  gem 'coffee-rails', "~> 3.2"
+  gem 'sass-rails', "  ~> 4.0"
+  gem 'coffee-rails', "~> 4.0"
   gem 'uglifier'
 end
 
