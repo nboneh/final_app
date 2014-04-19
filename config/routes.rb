@@ -16,7 +16,8 @@ FinalApp::Application.routes.draw do
   match '/logout',  to: 'session#destroy',   via: 'delete'
   resources :users
   match '/register',  to: 'users#new',   via: 'get'
-  match '/newsfeed', to: 'users#newsfeed', via: 'get'
+  match '/newsfeed', to: 'users#newsfeed', via: 'get' 
+  match '/users/:id', to: 'users#profile', via: 'get'
   match '/findfriends', to: 'friendships#find', via: 'get'
   match '/addfriend', to: 'friendships#create', via: 'post'
   match '/preferences', to: 'users#preferences', via: 'get'
