@@ -6,11 +6,11 @@ Feature: create an account for a user in different criteria
     Background: users have been added to database
 
         Given the following users exist:
-            |first_name |last_name | email   | password|
-            |first      |last      | 123@gmail.com   | password|
-            |first      |last      | 124@gmail.com   | password|
-            |first      |last      | 125@hotmail.com | password|
-            |first      |last      | 126@hotmail.com | password|
+            |first_name |last_name | email   | password| password_confirmation|
+            |first      |last      | 123@gmail.com   | password| password|
+            |first      |last      | 124@gmail.com   | password| password|
+            |first      |last      | 125@hotmail.com | password| password|
+            |first      |last      | 126@hotmail.com | password| password|
 
         And I am on the register page
 
