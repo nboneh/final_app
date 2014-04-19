@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'railties', '4.0.0'
 gem 'rails', '4.0.0'
 gem 'bcrypt-ruby', '3.0.0'
-gem 'strong_parameters'
+gem 'protected_attributes'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
