@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def newsfeed
+    @user = User.find(session[:remember_token])
   end
 
   def login
