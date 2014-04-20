@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
     	#find(:email, :password, :conditions=>["email = ? AND password = ?", email, password])
     #end
 
+
 	private
 
 	  def create_remember_token

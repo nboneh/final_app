@@ -9,7 +9,7 @@ FinalApp::Application.routes.draw do
 
   get "user/preferences"
   
-  resources :session, only: [:new, :create]
+  resources :session, only: [:new, :create, :destroy]
   match '/login',  to: 'session#new',   via: 'get'
   match '/login', to: 'session#create', via: 'post'
   match '/logout',  to: 'session#destroy',   via: 'delete'

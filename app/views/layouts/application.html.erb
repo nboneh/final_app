@@ -20,7 +20,7 @@
 <%= link_to image_tag("rails.png", alt: "Profile Pictures"), 'profile' %>
 <li><%= link_to "Find Friends",    '/findfriends' %></li>
 <li><%= link_to "preferences",     '/preferences' %></li>
-<li><%= link_to "logout",     '/logout' %></li>
+<li><%= link_to "logout",     '/logout', method: "delete" %></li>
 </div>
 <div id="content">
 <%= yield %>
