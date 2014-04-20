@@ -21,6 +21,7 @@ end
 group :test do
   gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels'
+  gem 'factory_girl_rails', '4.2.1'
 end
 
 group :production do
