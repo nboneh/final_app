@@ -17,6 +17,11 @@ class SessionController < ApplicationController
   	end
 
   	def destroy
+<<<<<<< HEAD
   		current_user = nil
+=======
+	    sign_out
+	    redirect_to login_path
+>>>>>>> sigin
   	end
 end
