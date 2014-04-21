@@ -1,6 +1,7 @@
 <h1>Register</h1>
 
 <div>
+
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
       <%= f.label :first_name , "First Name"%>
@@ -20,6 +21,6 @@
       <br>
       <%= f.submit "Register", :id => 'Register' %>
     <% end %>
-
+    <div id="sidebar" class="gone" >
 
 </div>

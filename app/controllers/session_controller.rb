@@ -1,5 +1,6 @@
 class SessionController < ApplicationController
-	def new
+  skip_before_filter :require_login
+  def new
 	end
 
   	def create
@@ -16,5 +17,6 @@ class SessionController < ApplicationController
   	end
 
   	def destroy
+  		current_user = nil
   	end
 end

@@ -12,7 +12,7 @@ FinalApp::Application.routes.draw do
   resources :session, only: [:new, :create]
   match '/login',  to: 'session#new',   via: 'get'
   match '/login', to: 'session#create', via: 'post'
-  match '/logout',  to: 'session#destroy',   via: 'delete'
+  match '/login',  to: 'session#destroy',   via: 'delete'
   resources :users
   match '/register',  to: 'users#new',   via: 'get'
   match '/newsfeed', to: 'users#newsfeed', via: 'get'

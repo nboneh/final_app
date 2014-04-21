@@ -1,15 +1,15 @@
 class UsersController < ApplicationController
+  skip_before_filter :require_login, :only => [:new, :create]
   def show
-  #profile
+    #profile
+    id = params[:id] # retrieve user ID from URI route
+    @user = User.find(id) # Look up user by unique ID
   end
 
   def preferences
   end
 
   def newsfeed
-    if !signed_in?
-      redirect_to login_path
-    end
   end
 
   def login
