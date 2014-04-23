@@ -1,4 +1,4 @@
-<% if @user.errors.any? %>
+<% if @user != nil and @user.errors.any? %>
     <h2 id="error">
         Register Failed!
     </h2>
@@ -8,6 +8,19 @@
     </div>
     <ul>
     <% @user.errors.full_messages.each do |msg| %>
+      <li>* <%= msg %></li>
+    <% end %>
+    </ul>
+</div>
+<% end %>
+
+<% if @post != nil and @post.errors.any? %>
+    <h2 id="error">
+        Posting Failed!
+    </h2>
+  <div id="error_explanation">
+    <ul>
+    <% @post.errors.full_messages.each do |msg| %>
       <li>* <%= msg %></li>
     <% end %>
     </ul>

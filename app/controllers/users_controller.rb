@@ -10,6 +10,17 @@ class UsersController < ApplicationController
   end
 
   def newsfeed
+    @post = flash[:post]
+    @posts = Post.find(:all, :order => 'created_at DESC').first(20)
+    #@posts = {}
+    #posts.each do |post|
+     # user = User.find(post.sender_id)
+      #info = {:content => {#{post.content}
+       # , :user => #{user.first_name} #{user.last_name}',
+       # :picture => "#{user.picture}"}
+     # @posts << info
+    #end 
+    @receiverUserId = 0 
   end
 
   def login
