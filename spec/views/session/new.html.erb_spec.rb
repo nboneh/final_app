@@ -41,16 +41,16 @@ describe "sessions/new.html.erb" do
       			expect(page).to have_link('Find Friends', href: '/findfriends')
       		end
 
-      		it "should have link 'preferences'" do
-      			expect(page).to have_link('preferences', href: '/preferences')
+      		it "should have link 'Preferences'" do
+      			expect(page).to have_link('Preferences', href: '/preferences')
       		end
 
-      		it "should have link 'logout'" do
-      			expect(page).to have_link('logout', href: '/logout')
+      		it "should have link 'Logout'" do
+      			expect(page).to have_link('Logout', href: '/login')
       		end
 
       		describe "followed by signout" do
-        		before { click_link "logout" }
+        		before { click_link "Logout" }
         		it "should have button 'Login'" do
         			expect(page).to have_button("Login")
         		end
