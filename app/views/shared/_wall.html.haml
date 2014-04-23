@@ -1,0 +1,8 @@
+= form_tag newsfeed_path, :method => :post do
+
+  = label :post, :content, 'Post Here!'
+  <br>
+  = text_area :post, :content
+  <br>
+  = submit_tag 'Submit'
+  <br>
