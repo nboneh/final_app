@@ -1,4 +1,5 @@
 FinalApp::Application.routes.draw do
+  root 'users#newsfeed'
   get "shared/_error_messages"
 
   get "friendships/find"
@@ -7,7 +8,6 @@ FinalApp::Application.routes.draw do
 
   get "friendships/new"
 
-  get "user/preferences"
   
   resources :session, only: [:new, :create, :destroy]
   match '/login',  to: 'session#new',   via: 'get'
