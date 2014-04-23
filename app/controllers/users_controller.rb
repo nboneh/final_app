@@ -10,6 +10,9 @@ class UsersController < ApplicationController
   end
 
   def newsfeed
+    @post = flash[:post]
+    @posts = Post.find(:all, :order => 'created_at DESC').first(20)
+    @receiverUserId = 0 
   end
 
   def login
