@@ -13,13 +13,17 @@ class FriendshipsController < ApplicationController
     def create
         params[:status] = "pending"
         params[:sender_id] = current_user.id
-        params.require(:sender_id)
         params.require(:receiver_id)
-        params.require(:status)
+        data={}
+        data[:status] = params[:status]
+        data[:sender_id] = params[:sender_id]
+        data[:receiver_id] = params[:receiver_id]
         unless Friendship.friends?(params[:sender_id],params[:receiver_id])
-            @friend = Friendship.new(params[:post])
+            @friend = Friendship.new(data)
             if @friend.save
-                redirect_to newsfeed_path 
+                redirect_to newsfeed_path
+            else
+                flash[:failed] = "Failed to create a friendship"
             end
         else
             flash[:failed] = "You and #{params[:receiver_id]} are already friends"

@@ -22,8 +22,6 @@
     <td>
         <%= form_tag("/addfriend", method: "post") do %>
             <%= hidden_field_tag(:receiver_id, "#{user.id}") %>
-            <%= hidden_field_tag(:sender_id, "#{current_user.id}") %>
-            <%= hidden_field_tag(:status, "pending") %>
         <%= submit_tag("Add #{user.first_name} #{user.last_name}")%>
     <% end %>
     </td>

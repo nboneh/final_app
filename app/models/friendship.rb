@@ -4,11 +4,12 @@ class Friendship < ActiveRecord::Base
     attr_accessible :status, :sender_id, :receiver_id
 
     def self.friends?(user1, user2)
-        my_friends=Friendship.find_by(sender_id: user1)
-        unless(my_friends.nil?)
-            my_friends.find_by(receiver_id: user2).nil?
+        my_friends=Friendship.find_by(:sender_id, user1)
+        my_friends=my_friends | Friendship.find_by(:sender_id, user2)
+        unless(my_friends.nil?) 
+               my_friends[:receiver_id] == user2 
         else
-            false
+            return  false 
         end
     end
 end
