@@ -11,7 +11,6 @@
   = submit_tag 'Submit'
   <br>
 
-- @posts.each do |post|
-  %ul
-    %li #{post.content}
-  
+%ul
+-@posts.each do |post|
+  %li #{post.sender_id}  #{post.content} 
