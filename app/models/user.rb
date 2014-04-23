@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :received_posts, :class_name => 'Post', :foreign_key => 'receiver_pid' 
 	
 	before_save { self.email = email.downcase }
+	before_save {self.picture = 
+		"http://cdn.techinasia.com/wp-content/uploads/2009/11/facebook-avatar.png"}
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :first_name, presence: true
 	validates :last_name, presence: true
