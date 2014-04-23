@@ -15,14 +15,18 @@
 <%= link_to image_tag("MyBookBanner.png", alt: "Welcome to MyBook"), newsfeed_path %>
 </div>
 </header>
-<div   class="container"  >
 
+<% if signed_in? %>
+<div   class="container"  >
 <div id="sidebar">
-<%= link_to image_tag("rails.png", alt: "Profile Pictures"), user_path(current_user) %>
+<%= link_to image_tag("rails.png", alt: "Profile Picture"), user_path(current_user) %>
 <li><%= link_to "Find Friends",    findfriends_path %></li>
-<li><%= link_to "preferences",     preferences_path %></li>
-<li><%= link_to "logout",     login_path, :method => :delete %></li>
+<li><%= link_to "Preferences",     preferences_path %></li>
+<li><%= link_to "Logout",     login_path, :method => :delete %></li>
 </div>
+<% end %>
+
+
 <div id="content">
 <%= yield %>
 </div>

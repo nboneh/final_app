@@ -27,10 +27,8 @@ Feature: Allow valid users to login with the correct password
         When I press "Login"
         Then I should be on the newsfeed page
         And I should see "Welcome User one"
-        When I follow "profile"
-        Then I should be on the profile page 
-        And I should see "Pending Friend Requests" 
-        And I should see "Wall"
+        When I follow "Profile Picture"
+        Then I should be on User one's profile
 
     Scenario: Login Failure 
         When I fill in the following:

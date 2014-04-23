@@ -69,4 +69,4 @@ Feature: create an account for a user in different criteria
             | Reenter Password      | password1     |
         And I press "Register"
         Then I should see "Register Failed!"
-        And I should see "Password doesn't match confirmation"
+        And I should see "Password confirmation doesn't match Password"

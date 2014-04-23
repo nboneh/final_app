@@ -24,7 +24,7 @@ Then /I should see (all|none) of the users/ do |query|
 end
 
 When /^I log out$/ do
-  step %{I follow "Log Out"}
+  step %{I follow "Logout"}
 end
 
 

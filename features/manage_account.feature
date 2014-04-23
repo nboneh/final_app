@@ -22,7 +22,7 @@ Feature: Manage a user account with different controls
         And I am logged in as "User one" with password "password"
 
     Scenario: Changing my password
-        When I follow "Profile Preferences"
+        When I follow "Preferences"
         And I follow "Change password" 
         Then I should be on "change password page"
         And I should see "enter current password"
