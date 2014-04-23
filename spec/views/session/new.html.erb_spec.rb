@@ -37,6 +37,10 @@ describe "sessions/new.html.erb" do
       			expect(page).to have_content("Welcome "+user.first_name+" "+user.last_name)
       		end
 
+         # it "should have link with a picture" do
+          #  expect(page).to have_link('img', href: user_path(user))
+          #end
+
       		it "should have link 'Find Friends'" do
       			expect(page).to have_link('Find Friends', href: '/findfriends')
       		end
