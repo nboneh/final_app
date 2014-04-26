@@ -10,7 +10,10 @@ class UsersController < ApplicationController
   end
 
   def newsfeed
-      @post = flash[:post]
+    @requests = Friendship.where(receiver_id: current_user.id, status: "pending").count
+    @requestMessage = "#{@requests.to_s} new friend request"
+    @requestMessage += "s" if @requests != 1 
+    @post = flash[:post]
     @posts = Post.find(:all, :order => 'created_at DESC').first(20)
   end
 

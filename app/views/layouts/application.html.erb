@@ -22,7 +22,13 @@
 <div id="sidebar">
 <%= link_to image_tag("#{current_user.picture}" , alt: "Profile Picture", width: "80", height: "50"), user_path(current_user) %>
 <li><%= link_to "Find Friends",    findfriends_path %></li>
-<li><%= link_to "Preferences",     preferences_path %></li>
+<li>
+<% unless @requestMessage.nil? %>
+<%= link_to "Preferences " + "#{@requestMessage}",     preferences_path %> 
+<% else %>
+<%= link_to "Preferences ",     preferences_path %> 
+<% end %>
+</li>
 <li><%= link_to "Logout",     login_path, :method => :delete %></li>
 </div>
 <% end %>

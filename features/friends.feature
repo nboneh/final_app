@@ -27,27 +27,27 @@ Feature: Allow valid users to send each other friend requests
         When I press "Add User two"
         And I log out
         And I log in as "User two" with password "password"
-        Then I should see "new friend request/s"
+        Then I should see "new friend request"
 
     Scenario: Accepting a friend request
         When "User two" sends "User one" a friend request
-        And I follow "new friend request/s"
-        Then I should be on "profile preferences page"
+        And I follow "new friend request"
+        Then I should be on the preferences page
         When I press "Accept User two friend request" 
         And I follow "User two profile"
         Then I should see "You and user two are friends"
         When I follow "newsfeed"
-        Then I should not see "new friend request/s" 
+        Then I should not see "new friend request" 
 
     Scenario: Rejecting a friend request
         When "User two" sends "User one" a friend request
-        And I follow "new friend request/s"
-        Then I should be on "profile preferences page"
+        And I follow "new friend request"
+        Then I should be on the preferences page
         When I press "Reject User two friend request" 
         And I follow "User two profile"
         Then I should see "You and user two are not friends"
         When I follow "newsfeed"
-        Then I should not see "new friend request/s" 
+        Then I should not see "new friend request" 
 
     Scenario: Searching friend by last name
         When I follow "Find Friends"

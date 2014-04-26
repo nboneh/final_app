@@ -1,10 +1,10 @@
 <h1> Find Friends</h1>
 
 
-<% if (not flash[:failed].nil?) then %> 
+<% if (not flash[:failed].nil?) then %>
 
     <h2 id="error">
-        <% "#{flash[:failed]}" %>
+        <%= "#{flash[:failed]}" %>
     </h2>
 
 <% end%>
