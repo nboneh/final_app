@@ -3,15 +3,32 @@
   <%= label :content , "Post Here!"%>
   <br>
   <%= text_area_tag(:content) %>
-  <%= hidden_field_tag(:receiver_id, "#{@receiverUserId}") %>
+  <% receiverId = 0 %>
+  <% if @user != nil %>
+  	<% receiverId = @user.id %>
+  <% end %>
+  <%= hidden_field_tag(:receiver_id, "#{receiverId}") %>
   <%= hidden_field_tag(:sender_id, "#{current_user.id}") %>
   <br>
   <%= submit_tag("Submit")%>
+  <br>
 <%end %>
-<ul>
+
+<div id="wall">
+<%postNum = 1%>
 <% @posts.each do |post| %>
-	<li>
-	<%= post.receiver_id %>
+	<% user = User.find(post.sender_id) %>
+	<%=  link_to image_tag("#{user.picture}" , alt: "WallPost#{postNum}", width: "40", height: "25"), user_path(user)%>
+	
+	<%= link_to "#{user.first_name} #{user.last_name}:", user_path(user) %>
+	<br>
 	<%= post.content %>
-	</li>
+	<% postNum+=1%>
+	<br>
+	<font size ="1">
+	<%= "#{post.created_at}" %>
+	</font> 
+	</p>
 <%end %>
+</div>
+</tbody>
