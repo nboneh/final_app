@@ -1,0 +1,17 @@
+<%= render 'shared/error_messages' %>
+<%= form_tag(posts_path, method: "post") do %>
+  <%= label :content , "Post Here!"%>
+  <br>
+  <%= text_area_tag(:content) %>
+  <%= hidden_field_tag(:receiver_id, "#{@receiverUserId}") %>
+  <%= hidden_field_tag(:sender_id, "#{current_user.id}") %>
+  <br>
+  <%= submit_tag("Submit")%>
+<%end %>
+<ul>
+<% @posts.each do |post| %>
+	<li>
+	<%= post.receiver_id %>
+	<%= post.content %>
+	</li>
+<%end %>
