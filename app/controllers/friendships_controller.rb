@@ -7,7 +7,7 @@ class FriendshipsController < ApplicationController
             @options = @options | User.where(first_name: name)
             @options = @options | User.where(last_name: name) 
             @options = @options | User.where(email: name)
-            @options = @options - User.where(id: current_user.id)
+#@options = @options - User.where(id: current_user.id)
         end
     end
 
@@ -28,6 +28,7 @@ class FriendshipsController < ApplicationController
                 tmp=data[:sender_id]
                 data[:sender_id]=data[:receiver_id]
                 data[:receiver_id]=tmp
+                data[:status]="accepted"
                 Friendship.create(data)
                 redirect_to newsfeed_path 
             end
