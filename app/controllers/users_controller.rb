@@ -22,9 +22,23 @@ class UsersController < ApplicationController
  end
     if Friendship.check_user_request?(@user)
       flash[:request]="You have some friend requests"
+      @requests_list=Friendship.get_requests_list(@user.id)
     else
       flash[:request]="You don't have any friend requests"
     end
+  end
+
+  def accept_request
+    friendship_id=params[:request_id]
+    friendship=Friendship.find_by_id(friendship_id)
+    friendship.update_attribute('status', 'true')
+    redirect_to preferences_path
+  end
+
+  def reject_request
+    friendship_id=params[:request_id]
+    Friendship.delete(friendship_id)
+    redirect_to preferences_path
   end
 
   def newsfeed

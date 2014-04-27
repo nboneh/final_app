@@ -20,4 +20,9 @@ class Friendship < ActiveRecord::Base
         return Friendship.exists?(:status => 'pending', :receiver_id => receiver_id)
 
     end
+
+    def self.get_requests_list(receiver_id)
+        requests_list=Friendship.find(:all, :conditions=>{:receiver_id => receiver_id, :status => "pending"})
+        return requests_list
+    end
 end
