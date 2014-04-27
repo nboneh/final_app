@@ -26,6 +26,13 @@ class User < ActiveRecord::Base
     	#find(:email, :password, :conditions=>["email = ? AND password = ?", email, password])
     #end
 
+    #def self.update_in_quo(user_id, interests, quotes)
+    #	user=User.find_by(id: user_id)
+    #	user.interests=interests
+    #	user.quotes=quotes
+   	#	user.save
+    #end
+
 
 	private
 

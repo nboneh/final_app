@@ -7,6 +7,15 @@ class UsersController < ApplicationController
   end
 
   def preferences
+    #id = params[:id]
+    #id=current_user.id
+   # @user = User.find(id)
+   @user=current_user
+    if Friendship.check_user_request?(@user)
+      flash[:request]="You have some friend requests"
+    else
+      flash[:request]="You don't have any friend requests"
+    end
   end
 
   def newsfeed
@@ -18,6 +27,21 @@ class UsersController < ApplicationController
   def login
   end
 
+  def update
+    @user=current_user
+    #user_id=@user.id
+    #print params[:intersts]
+    #if User.update_in_quo(user_id, params[:intersts], params[:quotes])
+    if @user.update_attribute('interests', params[:user][:interests]) && @user.update_attribute('quotes', params[:user][:quotes])
+      flash[:update_success] = "Update Successful!"
+      redirect_to newsfeed_path
+    else
+      flash[:update_fail] = "Update Fail!"
+      redirect_to preferences_path
+    end
+
+  end
+
   def new
     if flash[:userReg] == nil
       @user = User.new(user_params)
@@ -25,6 +49,8 @@ class UsersController < ApplicationController
       @user = flash[:userReg]
     end
   end
+
+
 
 
 def create
@@ -46,4 +72,5 @@ def create
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password) if params[:user]
     end
+
 end
