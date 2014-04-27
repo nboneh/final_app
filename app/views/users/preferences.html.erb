@@ -18,9 +18,15 @@
 	<h2>
         <%= "#{flash[:request]}" %>
     </h2>
+    <% if @requests_list %>
     <div>
-    	
+    	<%=for request in @requests_list do%>
+    		<li><%="#{User.find_by_id(request.sender_id).first_name} wants to be your friend"%></li>
+    		<%= button_to "accept", {:controller => "users", :action => "accept_request", :request_id => request.id} %>
+    		<%= button_to "reject", {:controller => "users", :action => "reject_request", :request_id => request.id} %>
+    	<%end%>
     </div>
+    <%end%>
 </div>
 <div>
 
