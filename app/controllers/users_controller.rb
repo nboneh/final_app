@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   def accept_request
     friendship_id=params[:request_id]
     friendship=Friendship.find_by_id(friendship_id)
-    friendship.update_attribute('status', 'true')
+    friendship.update_attribute('status', "accepted")
     redirect_to preferences_path
   end
 
