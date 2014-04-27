@@ -1,4 +1,32 @@
+
 <h1>
 <%= "#{@user.first_name} #{@user.last_name}'s Profile"%>
 </h1>
+<table style="width: 700px; word-wrap:break-word; table-layout: fixed;" border="2">
+<tr>
+<td>
+<%= image_tag("#{@user.picture}" , alt: "Profile Picture", width: "300", height: "200") %>
+<br>
+<% if @user.interests != nil and
+	@user.interests  != "" %>
+<%= "Interests: "%>
+<br>
+<%= "#{@user.interests}" %>
+<br>
+<%end%>
+
+<% if @user.quotes != nil and
+	@user.quotes  != "" %>
+<%= "Quotes:" %>
+<br>
+<%= "#{@user.quotes}" %>
+<br>
+
+<%end%>
+<br>
+</td>
+<td>
 <%= render 'shared/wall' %>
+</td>
+</tr>
+</table>
