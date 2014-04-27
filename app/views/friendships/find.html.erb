@@ -8,19 +8,19 @@
     </h2>
 
 <% end%>
-    <%= form_tag("/findfriends", method: "get") do %>
+    <%= form_tag(findfriends_path, method: "get") do %>
     <%= label_tag(:user, "Search for:") %>
 <%= text_field_tag("name") %>
 <%= submit_tag("Search", :id => "Search")%>
 <% end %>
 <% if (@options != nil) then %>
     <% @options.each do |user| %>
-    Name: <br />
-<tr>
-    <td><%= user.first_name %></td>
-    <td><%= user.last_name %></td>
+
+   <td><%=  link_to image_tag("#{user.picture}" , alt: "#{user.id}", width: "40", height: "25"), user_path(user)%>
+    
+    <%= link_to "#{user.first_name} #{user.last_name}:", user_path(user) %></td>
     <td>
-        <%= form_tag("/addfriend", method: "post") do %>
+        <%= form_tag(addfriend_path, method: "post") do %>
             <%= hidden_field_tag(:receiver_id, "#{user.id}") %>
             <%= hidden_field_tag(:sender_id, "#{current_user.id}") %>
             <%= hidden_field_tag(:status, "pending") %>
