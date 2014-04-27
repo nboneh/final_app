@@ -19,6 +19,8 @@ FinalApp::Application.routes.draw do
   match '/findfriends', to: 'friendships#find', via: 'get'
   match '/addfriend', to: 'friendships#create', via: 'post'
   match '/preferences', to: 'users#preferences', via: 'get'
+  match '/accept_request', to: 'users#accept_request', via: 'post'
+  match '/reject_request', to: 'users#reject_request', via: 'post'
   resources :posts
   match '/posts',  to: 'posts#create',   via: 'post'
   # The priority is based upon order of creation:
