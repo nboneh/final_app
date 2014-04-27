@@ -1,2 +1,28 @@
 <h1>User#preferences</h1>
 <p>Find me in app/views/user/preferences.html.erb</p>
+<div>
+	<h1>Add interests and quotes</h1>
+	<%= form_for(@user) do |f|%>
+		<br>
+		    <%= f.label :interests, "Interests" %>
+      		<%= f.text_field :interests, :value => @user.interests %>
+		</br>
+		<br>
+			<%= f.label :quotes, "Quotes" %>
+      		<%= f.text_field :quotes, :value => @user.quotes%>
+		</br>
+		<%= f.submit "Update", :id => 'Update' %>
+	<%end %>
+</div>
+<div>
+	<h2>
+        <%= "#{flash[:request]}" %>
+    </h2>
+    <div>
+    	
+    </div>
+</div>
+<div>
+
+
+</div>

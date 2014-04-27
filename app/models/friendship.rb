@@ -14,4 +14,10 @@ class Friendship < ActiveRecord::Base
     	end
     	false
     end
+
+    def self.check_user_request?(user)
+        receiver_id=user.id
+        return Friendship.exists?(:status => 'pending', :receiver_id => receiver_id)
+
+    end
 end
