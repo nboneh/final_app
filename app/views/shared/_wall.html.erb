@@ -1,3 +1,4 @@
+<% if @posts != nil %>
 <%= render 'shared/error_messages' %>
 <div id="wall">
 <%= form_tag(posts_path, method: "post") do %>
@@ -32,4 +33,4 @@
 	</p>
 <%end %>
 </div>
-</tbody>
+<%end %>

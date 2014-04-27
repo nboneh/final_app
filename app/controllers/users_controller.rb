@@ -4,6 +4,8 @@ class UsersController < ApplicationController
     #profile
     id = params[:id] # retrieve user ID from URI route
     @user = User.find(id) # Look up user by unique ID
+    @post = flash[:post]
+    @posts = Post.where(:receiver_id=>id).order('created_at DESC').first(20)
   end
 
   def preferences
@@ -14,7 +16,7 @@ class UsersController < ApplicationController
     @requestMessage = "#{@requests.to_s} new friend request"
     @requestMessage += "s" if @requests != 1 
     @post = flash[:post]
-    @posts = Post.find(:all, :order => 'created_at DESC').first(20)
+    @posts = Post.where(:receiver_id=>0).order('created_at DESC').where(Friendship.friends?(current_user.id, :receiver_id)).first(20)
   end
 
   def login
