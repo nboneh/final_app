@@ -4,6 +4,14 @@ class Friendship < ActiveRecord::Base
     attr_accessible :status, :sender_id, :receiver_id
 
     def self.friends?(user1, user2)
-        Friendship.exists?(sender_id: user1, receiver_id: user2) and Friendship.where(sender_id: user1, receiver_id: user2).first(1).status == "Accepted" or Friendship.exists?(sender_id: user2, receiver_id: user1) and Friendship.where(sender_id: user2, receiver_id: user1).first(1).status == "Accepted";
-  	end
+    	check1 =Friendship.where(sender_id: user1, receiver_id: user2).first(1)[0]
+    	if check1 != nil
+    		return check1.status == "accepted"
+    	end
+    	check2 =Friendship.where(sender_id: user2, receiver_id: user1).first(1)[0]
+    	if check2 != nil
+    		return check2.status == "accepted"
+    	end
+    	false
+    end
 end

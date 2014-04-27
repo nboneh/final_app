@@ -16,7 +16,16 @@ class UsersController < ApplicationController
     @requestMessage = "#{@requests.to_s} new friend request"
     @requestMessage += "s" if @requests != 1 
     @post = flash[:post]
-    @posts = Post.where(:receiver_id=>0).order('created_at DESC').where(Friendship.friends?(current_user.id, :receiver_id)).first(20)
+    prePosts = Post.where(:receiver_id=>0).order('created_at DESC')
+    @posts = []
+    prePosts.each do |post| 
+      if Friendship.friends?(current_user.id, post.sender_id) or current_user.id == post.sender_id
+        @posts << post
+      end
+      if @posts.count >= 20
+        break;
+      end
+    end
   end
 
   def login

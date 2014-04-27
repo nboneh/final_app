@@ -11,7 +11,7 @@ When /^"(.*?)" sends "(.*?)" a friend request$/ do |user1, user2|
  user2id = User.where(:first_name => user2split[0], :last_name => user2split[1]).first.id
   step %{the following friendships exist:}, table(%{ 
         |sender_id | receiver_id | status |
-        | #{user1id} | #{user2id} | "Pending" |})
+        | #{user1id} | #{user2id} | pending |})
 end
 
 
