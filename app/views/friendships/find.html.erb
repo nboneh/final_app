@@ -15,7 +15,7 @@
 <% end %>
 <% if (@options != nil) then %>
     <% @options.each do |user| %>
-    <%= render :partial =>'shared/friend_request', :locals => {:user=> user} %>
+    <%= render :partial =>'shared/friend_request', :locals => {:user=> user , :profile =>false} %>
     </td>
     <br>
 </tr>

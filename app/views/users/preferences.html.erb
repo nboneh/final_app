@@ -4,11 +4,7 @@
 	<%= form_for(@user) do |f|%>
 		<%= f.label :picture, "ImageURL:" %>
 		   <br>
-		 <% if @user.picture != "user.png" %>
-      		<%= f.text_field :picture,:value => @user.picture %>
-      	<% else %>
       		<%= f.text_field :picture, :value => ""%>
-      	<% end %>
 
 		<br>
 		    <%= f.label :interests, "Interests:" %>
@@ -29,7 +25,7 @@
     <% if @requests_list %>
     	<%for request in @requests_list do%>
       <% user = User.find_by_id(request.sender_id) %>
-      <%= render :partial =>'shared/friend_request', :locals => {:user=> user} %>
+      <%= render :partial =>'shared/friend_request', :locals => {:user=> user, :profile =>false} %>
       <%end %>
     <%end%>
 </div>
