@@ -67,7 +67,7 @@ class UsersController < ApplicationController
     #print params[:intersts]
     #if User.update_in_quo(user_id, params[:intersts], params[:quotes])
     if params[:user][:picture] == ""
-        params[:user][:picture] = "user.png"
+        params[:user][:picture] = @user.picture
     end
     if  @user.update_attributes( params[:user])
       flash[:update_success] = "Update Successful!"
