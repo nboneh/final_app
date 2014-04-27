@@ -14,7 +14,12 @@ class UsersController < ApplicationController
     #id = params[:id]
     #id=current_user.id
    # @user = User.find(id)
+   if  flash[:user] != nil
+    @user = flash[:user]
+    @update = 1
+  else
    @user=current_user
+ end
     if Friendship.check_user_request?(@user)
       flash[:request]="You have some friend requests"
     else
@@ -43,18 +48,19 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user=current_user
+    @user = current_user
     #user_id=@user.id
     #print params[:intersts]
     #if User.update_in_quo(user_id, params[:intersts], params[:quotes])
     if params[:user][:picture] == ""
         params[:user][:picture] = "user.png"
     end
-    if  @user.update_attribute('picture', params[:user][:picture]) && @user.update_attribute('interests', params[:user][:interests]) && @user.update_attribute('quotes', params[:user][:quotes])
+    if  @user.update_attributes( params[:user])
       flash[:update_success] = "Update Successful!"
-      redirect_to user_path(current_user.id)
+      redirect_to user_path(@user.id)
     else
       flash[:update_fail] = "Update Fail!"
+      flash[:user] = @user
       redirect_to preferences_path
     end
 

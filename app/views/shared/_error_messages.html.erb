@@ -1,6 +1,10 @@
 <% if @user != nil and @user.errors.any? %>
     <h2 id="error">
+    <% if @update != nil %>
+        Update Failed!
+    <% else %> 
         Register Failed!
+    <% end %>
     </h2>
   <div id="error_explanation">
     <div class="alert alert-error">
