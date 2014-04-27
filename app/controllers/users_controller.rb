@@ -4,7 +4,8 @@ class UsersController < ApplicationController
     #profile
     id = params[:id] # retrieve user ID from URI route
     @user = User.find(id) # Look up user by unique ID
-    if Friendship.friends?(current_user.id, id) or current_user == @user
+    status = Friendship.friendship_status(current_user.id, @user.id)
+    if status == "friends" or status == "yourself"
       @post = flash[:post]
       @posts = Post.where(:receiver_id=>id).order('created_at DESC').first(20)
     end
@@ -28,19 +29,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def accept_request
-    friendship_id=params[:request_id]
-    friendship=Friendship.find_by_id(friendship_id)
-    friendship.update_attribute('status', "accepted")
-    redirect_to preferences_path
-  end
-
-  def reject_request
-    friendship_id=params[:request_id]
-    Friendship.delete(friendship_id)
-    redirect_to preferences_path
-  end
-
   def newsfeed
     @requests = Friendship.where(receiver_id: current_user.id, status: "pending").count
     @requestMessage = "#{@requests.to_s} new friend request"
@@ -49,7 +37,8 @@ class UsersController < ApplicationController
     prePosts = Post.where(:receiver_id=>0).order('created_at DESC')
     @posts = []
     prePosts.each do |post| 
-      if Friendship.friends?(current_user.id, post.sender_id) or current_user.id == post.sender_id
+      status = Friendship.friendship_status(current_user.id, post.sender_id)
+      if status == "friends" or status == "yourself"
         @posts << post
       end
       if @posts.count >= 20

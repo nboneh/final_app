@@ -1,0 +1,30 @@
+<%=  link_to image_tag("#{user.picture}" , alt: "#{user.id}", width: "40", height: "25"), user_path(user)%>
+    
+    <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
+    <br>
+        <% status =  Friendship.friendship_status(current_user.id, user.id)  %>
+        <% request = Friendship.where(sender_id: current_user.id, receiver_id: user.id).first(1)[0]%>
+        <% if request == nil %>
+            <% request = Friendship.where(sender_id: user.id, receiver_id: current_user.id).first(1)[0]%>
+        <% end %>   
+
+         <% if status == "yourself" %>
+            This is you!
+        <% elsif status == "friends" %>
+            Already Friends!
+            <%= button_to "Delete!", friendship_path(request), :method => :delete %>
+         <% elsif status == "sent" %>
+            Friend request sent!
+             <%= button_to "Unsend!", friendship_path(request), :method => :delete %>
+         <% elsif status == "received" %>
+            <%= button_to "Accept!", friendship_path(request), :method => :patch %>
+            <%= button_to "Reject!", friendship_path(request), :method => :delete %>
+        <% elsif status == "notfriends" %>
+        <%= form_tag(friendship_path(request), method: "post") do %>
+            <%= hidden_field_tag(:receiver_id, "#{user.id}") %>
+            <%= hidden_field_tag(:sender_id, "#{current_user.id}") %>
+            <%= hidden_field_tag(:status, "pending") %>
+        <%= submit_tag("Add #{user.first_name} #{user.last_name}")%>
+        <%end %>
+
+    <% end %>

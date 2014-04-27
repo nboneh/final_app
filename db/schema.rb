@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20140409215920) do
     t.string   "status"
     t.integer  "sender_id"
     t.integer  "receiver_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "friendships", ["receiver_id"], name: "index_friendships_on_receiver_id"
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20140409215920) do
     t.string   "content"
     t.integer  "sender_id"
     t.integer  "receiver_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "posts", ["receiver_id"], name: "index_posts_on_receiver_id"
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 20140409215920) do
     t.string   "password"
     t.string   "picture"
     t.string   "quotes"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
   end

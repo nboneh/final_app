@@ -12,33 +12,25 @@ class FriendshipsController < ApplicationController
     end
 
     def create
-        params[:status] = "pending"
-        params[:sender_id] = current_user.id
-        params.require(:sender_id)
-        params.require(:receiver_id)
-        params.require(:status)
-        data={}
-        data[:sender_id]=params[:sender_id]
-        data[:receiver_id]=params[:receiver_id]
-        data[:status]=params[:status]
-        unless Friendship.friends?(params[:sender_id],params[:receiver_id])
-            @friend = Friendship.new(data)
-            if @friend.save
-                #Swap the sender and receiver
-                tmp=data[:sender_id]
-                data[:sender_id]=data[:receiver_id]
-                data[:receiver_id]=tmp
-                data[:status]="accepted"
-                Friendship.create(data)
-                redirect_to newsfeed_path 
-            end
-        else
-            flash[:failed] = "You and #{params[:receiver_id]} are already friends"
-            redirect_to findfriends_path
+       friendship =  Friendship.new(:status => "pending",
+            :sender_id => params[:sender_id],
+            :receiver_id =>params[:receiver_id])
+       friendship.save
+          redirect_to :back
         end
-    
 
-    end
+    def update
+        friendship_id=params[:id]
+        friendship=Friendship.find_by_id(friendship_id)
+        friendship.update_attribute('status', "accepted")
+        redirect_to :back
+     end
+
+    def destroy
+        friendship = Friendship.find(params[:id])
+        friendship.destroy
+        redirect_to :back
+     end
 
     def new
     end
