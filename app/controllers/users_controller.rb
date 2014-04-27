@@ -47,9 +47,12 @@ class UsersController < ApplicationController
     #user_id=@user.id
     #print params[:intersts]
     #if User.update_in_quo(user_id, params[:intersts], params[:quotes])
-    if @user.update_attribute('interests', params[:user][:interests]) && @user.update_attribute('quotes', params[:user][:quotes])
+    if params[:user][:picture] == ""
+        params[:user][:picture] = "user.png"
+    end
+    if  @user.update_attribute('picture', params[:user][:picture]) && @user.update_attribute('interests', params[:user][:interests]) && @user.update_attribute('quotes', params[:user][:quotes])
       flash[:update_success] = "Update Successful!"
-      redirect_to newsfeed_path
+      redirect_to user_path(current_user.id)
     else
       flash[:update_fail] = "Update Fail!"
       redirect_to preferences_path

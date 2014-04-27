@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
   has_many :received_posts, :class_name => 'Post', :foreign_key => 'receiver_pid' 
 	
 	before_save { self.email = email.downcase }
-	before_save {self.picture = "user.png"}
+	before_create {self.picture = "user.png"}
+  before_save{ isValidPicture(self.picture)}
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :first_name, presence: true
 	validates :last_name, presence: true
@@ -21,6 +22,10 @@ class User < ActiveRecord::Base
   	def User.hash(token)
     	Digest::SHA1.hexdigest(token.to_s)
  	end
+
+  def isValidPicture(url)
+  end 
+
 	#def self.authenticate(email, password) 
     	#find(:email, :password, :conditions=>["email = ? AND password = ?", email, password])
     #end
