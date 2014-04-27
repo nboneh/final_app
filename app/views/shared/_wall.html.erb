@@ -16,6 +16,7 @@
   </p>
 <%end %>
 
+
 <%postNum = 1%>
 <% @posts.each do |post| %>
 	<% user = User.find(post.sender_id) %>
@@ -31,8 +32,8 @@
 	<%= "#{post.created_at}" %>
 	</font> 
 	</p>
+	 <% end %>
 	</div>
-	<%end %>
 	<%else %>
-		<%= "You can only see the profile wall of your friends'" %>
-<%end %>
+		<%= "You can only see the profile wall of your Friend's" %>
+	<%end %>
