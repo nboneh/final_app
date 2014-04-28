@@ -23,7 +23,7 @@
             <%= button_to "Accept!", friendship_path(request), :method => :patch %>
             <%= button_to "Reject!", friendship_path(request), :method => :delete %>
         <% elsif status == "notfriends" %>
-        <%= form_tag(friendship_path(request), method: "post") do %>
+        <%= form_tag(friendships_path, method: "post") do %>
             <%= hidden_field_tag(:receiver_id, "#{user.id}") %>
             <%= hidden_field_tag(:sender_id, "#{current_user.id}") %>
             <%= hidden_field_tag(:status, "pending") %>
