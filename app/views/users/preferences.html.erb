@@ -1,2 +1,31 @@
-<h1>User#preferences</h1>
-<p>Find me in app/views/user/preferences.html.erb</p>
+<h1>Preferences</h1>
+<%= render 'shared/error_messages' %>
+<div>
+	<%= form_for(@user) do |f|%>
+		<%= f.label :picture, "ImageURL:" %>
+		   <br>
+      		<%= f.text_field :picture, :value => ""%>
+
+		<br>
+		    <%= f.label :interests, "Interests:" %>
+		<br>
+      		<%= f.text_area :interests, :value => @user.interests %>
+		<br>
+			<%= f.label :quotes, "Quotes:" %>
+		<br>
+      		<%= f.text_area :quotes, :value => @user.quotes%>
+		<br>
+		<%= f.submit "Update", :id => 'Update' %>
+	<%end %>
+</div>
+<div>
+	<h2>
+        <%= "#{flash[:request]}" %>
+    </h2>
+    <% if @requests_list %>
+    	<%for request in @requests_list do%>
+      <% user = User.find_by_id(request.sender_id) %>
+      <%= render :partial =>'shared/friend_request', :locals => {:user=> user, :profile =>false} %>
+      <%end %>
+    <%end%>
+</div>

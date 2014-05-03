@@ -7,10 +7,12 @@ class FriendshipsController < ApplicationController
             @options = @options | User.where(first_name: name)
             @options = @options | User.where(last_name: name) 
             @options = @options | User.where(email: name)
+#@options = @options - User.where(id: current_user.id)
         end
     end
 
     def create
+<<<<<<< HEAD
         params[:status] = "pending"
         params[:sender_id] = current_user.id
         params.require(:receiver_id)
@@ -28,10 +30,27 @@ class FriendshipsController < ApplicationController
         else
             flash[:failed] = "You and #{params[:receiver_id]} are already friends"
             redirect_to findfriends_path
+=======
+       friendship =  Friendship.new(:status => "pending",
+            :sender_id => params[:sender_id],
+            :receiver_id =>params[:receiver_id])
+       friendship.save
+          redirect_to :back
+>>>>>>> 781ee4809ee62336b6be538c3d9e4d67ba7dbb81
         end
-    
 
-    end
+    def update
+        friendship_id=params[:id]
+        friendship=Friendship.find_by_id(friendship_id)
+        friendship.update_attribute('status', "accepted")
+        redirect_to :back
+     end
+
+    def destroy
+        friendship = Friendship.find(params[:id])
+        friendship.destroy
+        redirect_to :back
+     end
 
     def new
     end

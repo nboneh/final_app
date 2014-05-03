@@ -1,20 +1,21 @@
 <h1> Find Friends</h1>
 
 
-<% if (not flash[:failed].nil?) then %> 
+<% if (not flash[:failed].nil?) then %>
 
     <h2 id="error">
-        <% "#{flash[:failed]}" %>
+        <%= "#{flash[:failed]}" %>
     </h2>
 
 <% end%>
-    <%= form_tag("/findfriends", method: "get") do %>
+    <%= form_tag(findfriends_path, method: "get") do %>
     <%= label_tag(:user, "Search for:") %>
 <%= text_field_tag("name") %>
 <%= submit_tag("Search", :id => "Search")%>
 <% end %>
 <% if (@options != nil) then %>
     <% @options.each do |user| %>
+<<<<<<< HEAD
     Name: <br />
 <tr>
     <td><%= user.first_name %></td>
@@ -24,7 +25,11 @@
             <%= hidden_field_tag(:receiver_id, "#{user.id}") %>
         <%= submit_tag("Add #{user.first_name} #{user.last_name}")%>
     <% end %>
+=======
+    <%= render :partial =>'shared/friend_request', :locals => {:user=> user , :profile =>false} %>
+>>>>>>> 781ee4809ee62336b6be538c3d9e4d67ba7dbb81
     </td>
+    <br>
 </tr>
   <%end %>
 <% end %>
