@@ -13,14 +13,14 @@ FinalApp::Application.routes.draw do
   match '/login',  to: 'session#new',   via: 'get'
   match '/login', to: 'session#create', via: 'post'
   match '/login',  to: 'session#destroy',   via: 'delete'
-  resources :users
+  resources :users, :except => [:edit, :destroy, :index]
   match '/register',  to: 'users#new',   via: 'get'
   match '/newsfeed', to: 'users#newsfeed', via: 'get'
   match '/findfriends', to: 'friendships#find', via: 'get'
   match '/preferences', to: 'users#preferences', via: 'get'
   resources :posts
   match '/posts',  to: 'posts#create',   via: 'post'
-  resources :friendships
+  resources :friendships :execpt => [:show, :edit, :index]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

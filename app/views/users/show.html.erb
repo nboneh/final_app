@@ -8,16 +8,14 @@
 <%= image_tag("#{@user.picture}" , alt: "Profile Picture", width: "300", height: "200") %>
 <%= render :partial =>'shared/friend_request', :locals => {:user=> @user, :profile =>true} %>
 <br>
-<% if @user.interests != nil and
-	@user.interests  != "" %>
+<% if @user.interests? %>
 <%= "Interests: "%>
 <br>
 <%= "#{@user.interests}" %>
 <br>
 <%end%>
 
-<% if @user.quotes != nil and
-	@user.quotes  != "" %>
+<% if @user.quotes? %>
 <%= "Quotes:" %>
 <br>
 <%= "#{@user.quotes}" %>
