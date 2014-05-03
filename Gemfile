@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 gem 'bcrypt-ruby', '3.0.0'
 gem 'protected_attributes'
 gem 'rails_best_practices'
+gem 'reek'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
