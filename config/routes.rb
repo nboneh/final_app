@@ -20,7 +20,7 @@ FinalApp::Application.routes.draw do
   match '/preferences', to: 'users#preferences', via: 'get'
   resources :posts
   match '/posts',  to: 'posts#create',   via: 'post'
-  resources :friendships :execpt => [:show, :edit, :index]
+  resources :friendships, :except => [:show, :edit, :index]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
