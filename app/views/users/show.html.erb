@@ -7,6 +7,7 @@
 <td align="center" valign="top">
 <%= image_tag("#{@user.picture}" , alt: "Profile Picture", width: "300", height: "200") %>
 <%= render :partial =>'shared/friend_request', :locals => {:user=> @user, :profile =>true} %>
+<% if @status == "friends" or @status == "yourself" %>
 <br>
 <% if @user.interests? %>
 <%= "Interests: "%>
@@ -21,7 +22,8 @@
 <%= "#{@user.quotes}" %>
 <br>
 
-<%end%>
+<% end %>
+<% end %>
 <br>
 </td>
 <td>

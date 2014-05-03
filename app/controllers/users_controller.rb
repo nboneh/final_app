@@ -4,9 +4,11 @@ class UsersController < ApplicationController
         #profile
         id = params[:id] # retrieve user ID from URI route
         @user = User.find(id) # Look up user by unique ID
-        status = Friendship.friendship_status(current_user.id, @user.id)
+        @status = Friendship.friendship_status(current_user.id, @user.id)
+        if @status == "yourself" or  @status == "friends"
         @post = flash[:post]
         @posts = Post.where(:receiver_id=>id).order('created_at DESC').first(20)
+    end
     end
 
     def preferences
