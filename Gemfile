@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-ruby '1.9.3'
+ruby '2.0.0'
 
 gem 'railties', '4.0.0'
 gem 'rails', '4.0.0'
@@ -7,7 +7,6 @@ gem 'bcrypt-ruby', '3.0.0'
 gem 'protected_attributes'
 gem 'rails_best_practices'
 gem 'reek'
-gem 'capybara'
 gem 'factory_girl_rails', '4.2.1'
  gem 'launchy'
  gem 'database_cleaner'
@@ -24,12 +23,12 @@ end
 group :test do
   gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels'
+  gem 'capybara'
 end
 
 group :production do
   #  gem 'pg'
   gem 'pg'
-  gem 'heroku'
   gem 'rails_12factor', '0.0.2'
 end
 
