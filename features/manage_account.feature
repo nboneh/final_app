@@ -21,10 +21,12 @@ Feature: Manage a user account with different controls
 
         And I am logged in as "User one" with password "password"
 
-    Scenario: Changing my password
+    Scenario: Changing my preferences
         When I follow "Preferences"
-        And I follow "Change password" 
-        Then I should be on "change password page"
-        And I should see "enter current password"
-        And I should see "enter new password" 
-        And I should see "reenter new password"
+        And I fill in the following:
+            | Interests | Video Games |
+            | Quotes | Pew! |
+        And I press "Update"
+        Then I should be on User one's profile 
+        And I should see "Video Games"
+        And I should see "Pew!"

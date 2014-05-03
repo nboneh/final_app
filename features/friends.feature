@@ -21,33 +21,28 @@ Feature: Allow valid users to send each other friend requests
 
     Scenario: Sending a friend request 
         When I follow "Find Friends"
-        And I fill in "name" with "testing2@test.com"
+        And I fill in "name" with "two"
         And I press "Search"
         Then I should see "User two"
         When I press "Add User two"
         And I log out
         And I log in as "User two" with password "password"
-        Then I should see "new friend request"
+        Then I should see "1 new friend request"
 
     Scenario: Accepting a friend request
         When "User two" sends "User one" a friend request
-        And I follow "new friend request"
+        And I follow "1 new friend request"
         Then I should be on the preferences page
-        When I press "Accept User two friend request" 
-        And I follow "User two profile"
-        Then I should see "You and user two are friends"
-        When I follow "newsfeed"
-        Then I should not see "new friend request" 
+        When I press "Accept!" 
+        And I follow "User two"
+        Then I should see "Already Friends!"
 
     Scenario: Rejecting a friend request
         When "User two" sends "User one" a friend request
-        And I follow "new friend request"
+        And I follow "1 new friend request"
         Then I should be on the preferences page
-        When I press "Reject User two friend request" 
-        And I follow "User two profile"
-        Then I should see "You and user two are not friends"
-        When I follow "newsfeed"
-        Then I should not see "new friend request" 
+        When I press "Reject!" 
+        Then I should not see "User two"
 
     Scenario: Searching friend by last name
         When I follow "Find Friends"

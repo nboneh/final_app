@@ -27,7 +27,7 @@ Feature: Allow valid users to login with the correct password
         When I press "Login"
         Then I should be on the newsfeed page
         And I should see "Welcome User one"
-        When I follow "Profile Picture"
+        When I follow "Sidebar Picture"
         Then I should be on User one's profile
 
     Scenario: Login Failure 

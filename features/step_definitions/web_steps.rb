@@ -216,7 +216,7 @@ Then /^the "([^"]*)" checkbox(?: within (.*))? should be checked$/ do |label, pa
   end
 end
 
-Then /^the "([^"]*)" checkbox(?: within (.*))? should not be checked$/ do |label, parent|
+Then /^the "([^"]*) checkbox(?: within (.*))? should not be checked$/ do |label, parent|
   with_scope(parent) do
     field_checked = find_field(label)['checked']
     if field_checked.respond_to? :should
@@ -260,11 +260,10 @@ end
 #     page.body.scan(string).length.should > 0 
 #  end
 #end
-
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
- firstPos = page.body.index(e1)
+  firstPos = page.body.index(e1)
   secondPos = page.body.index(e2)
   firstPos.should < secondPos
 end

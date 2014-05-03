@@ -20,18 +20,17 @@ Background: users have been added to database
   
   And the following friendships exist:
   | sender_id | receiver_id | status |
-  | 1      | 2        | "Accepted" |
-  | 1      | 3        | "Rejected" | 
+  | 1      | 2        | accepted |
   And I am logged in as "User one" with password "password"
 
 Scenario: Create Post on wall
   When I fill in the following:
-    |Post Here| Hello! |
-  And I press "Post"
+    | content | Hello! |
+  And I press "Submit"
   Then I should see "Hello!"
   When I fill in the following:
-    |Post Here| Hello2! |
-  And I press "Post"
+     | content | Hello2! |
+  And I press "Submit"
   Then I should see "Hello2!" before "Hello!"
   When I log out 
   And I log in as "User two" with password "password"
@@ -44,8 +43,8 @@ Scenario: Create Post on wall
 Scenario: Posting on friend's profile
   When I go to User two's profile 
   And I fill in the following:
-       |Post Here| Hello! |
-  And I press "Post"
+        | content | Hello! |
+  And I press "Submit"
   Then I should see "Hello!"
 
 Scenario: Not being able to post on a nonfriend profile

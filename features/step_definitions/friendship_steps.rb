@@ -12,6 +12,8 @@ When /^"(.*?)" sends "(.*?)" a friend request$/ do |user1, user2|
   step %{the following friendships exist:}, table(%{ 
         |sender_id | receiver_id | status |
         | #{user1id} | #{user2id} | pending |})
+  #Refresh
+  visit(current_path)
 end
 
 
