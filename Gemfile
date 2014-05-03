@@ -7,7 +7,6 @@ gem 'bcrypt-ruby', '3.0.0'
 gem 'protected_attributes'
 gem 'rails_best_practices'
 gem 'reek'
-gem 'factory_girl_rails', '4.2.1'
  gem 'launchy'
  gem 'database_cleaner'
 # Bundle edge Rails instead:
