@@ -17,6 +17,8 @@
 		<br>
 		<%= f.submit "Update", :id => 'Update' %>
 	<%end %>
+  <br>
+  <%= button_to "Delete all posts on profile!", posts_path, :method => :delete %>
 </div>
 <div>
 	<h2>
@@ -26,6 +28,14 @@
     	<%for request in @requests_list do%>
       <% user = User.find_by_id(request.sender_id) %>
       <%= render :partial =>'shared/friend_request', :locals => {:user=> user, :profile =>false} %>
+      <%end %>
+    <%end%>
+    <% if @friends.size > 0 %>
+    <h2>
+    	 Friend List 
+    </h2>
+    	<%for friend in @friends do%>
+      <%= render :partial =>'shared/friend_request', :locals => {:user=> friend, :profile =>false} %>
       <%end %>
     <%end%>
 </div>

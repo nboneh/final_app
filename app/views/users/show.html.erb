@@ -4,7 +4,7 @@
 </h1>
 <table style="width: 700px; word-wrap:break-word; table-layout: fixed;" border="2">
 <tr>
-<td>
+<td align="center" valign="top">
 <%= image_tag("#{@user.picture}" , alt: "Profile Picture", width: "300", height: "200") %>
 <%= render :partial =>'shared/friend_request', :locals => {:user=> @user, :profile =>true} %>
 <br>

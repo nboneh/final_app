@@ -7,4 +7,12 @@ class PostsController < ApplicationController
 		  flash[:post] = @post
 		redirect_to :back
 	end
+
+	def destroyall
+		 posts = Post.where(:receiver_id => current_user.id)
+         posts.each do |post|
+         	post.destroy
+         end
+		redirect_to user_path(current_user)
+	end
 end

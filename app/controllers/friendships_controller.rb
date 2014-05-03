@@ -2,12 +2,13 @@ class FriendshipsController < ApplicationController
 
     def find
         name=params[:name]
+        @options = Array.new
         if(name)
-            @options = Array.new
-            @options = @options | User.where(first_name: name)
-            @options = @options | User.where(last_name: name)
-            @options = @options | User.where(email: name)
-            #@options = @options - User.where(id: current_user.id)
+            @options = @options | User.find(:all, :conditions => ["first_name LIKE ?", "#{name}%"])
+            @options = @options | User.find(:all, :conditions => ["last_name LIKE ?", "#{name}%"])
+            #@options = @options - User.where(id: current_user.id
+        else
+            @options = User.find(:all)
         end
     end
 

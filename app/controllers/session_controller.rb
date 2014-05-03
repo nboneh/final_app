@@ -4,16 +4,15 @@ class SessionController < ApplicationController
 	end
 
   	def create
-        mysession = params[:session]
-  		user = User.find_by_email(mysession[:email].downcase)
-  		if user && user.authenticate(mysession[:password])
+    user = User.find_by_email(params[:session][:email].downcase)
+      if user && user.authenticate(params[:session][:password])
 	    	# Sign the user in and redirect to the user's show page.
 	     	sign_in user
-      		redirect_to newsfeed_path
+      	redirect_to newsfeed_path
 	    else
 	    	# Create an error message and re-render the signin form.
 	    	flash[:failed] = true
-            redirect_to login_path
+        redirect_to login_path
 	  	end
   	end
 

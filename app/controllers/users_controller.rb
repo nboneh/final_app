@@ -5,10 +5,8 @@ class UsersController < ApplicationController
         id = params[:id] # retrieve user ID from URI route
         @user = User.find(id) # Look up user by unique ID
         status = Friendship.friendship_status(current_user.id, @user.id)
-        if status == "friends" or status == "yourself"
-            @post = flash[:post]
-            @posts = Post.where(:receiver_id=>id).order('created_at DESC').first(20)
-        end
+        @post = flash[:post]
+        @posts = Post.where(:receiver_id=>id).order('created_at DESC').first(20)
     end
 
     def preferences
@@ -27,12 +25,26 @@ class UsersController < ApplicationController
         else
             flash[:request]="You don't have any friend requests"
         end
+
+        @friends = []
+        preFriends = Friendship.where(:receiver_id=>current_user.id)
+        preFriends.each do |friend|
+            status = Friendship.friendship_status(current_user.id, friend.sender_id)
+            if status == "friends"
+                @friends << User.find(friend.sender_id)
+            end
+        end
+         preFriends = Friendship.where(:sender_id=>current_user.id)
+        preFriends.each do |friend|
+        status = Friendship.friendship_status(current_user.id, friend.sender_id)
+            if status == "friends"
+            @friends << User.find(friend.receiver_id)
+            end
+        end
+
     end
 
     def newsfeed
-        @requests = Friendship.where(receiver_id: current_user.id, status: "pending").count
-        @requestMessage = "#{@requests.to_s} new friend request"
-        @requestMessage += "s" if @requests != 1
         @post = flash[:post]
         prePosts = Post.where(:receiver_id=>0).order('created_at DESC')
         @posts = []
@@ -71,7 +83,7 @@ class UsersController < ApplicationController
 
     def new
         myflash=flash[:userReg]
-        if myflash 
+        if myflash == nil
             @user = User.new(user_params)
         else
             @user = myflash 
