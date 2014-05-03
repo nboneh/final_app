@@ -15,19 +15,7 @@
 <% end %>
 <% if (@options != nil) then %>
     <% @options.each do |user| %>
-<<<<<<< HEAD
-    Name: <br />
-<tr>
-    <td><%= user.first_name %></td>
-    <td><%= user.last_name %></td>
-    <td>
-        <%= form_tag("/addfriend", method: "post") do %>
-            <%= hidden_field_tag(:receiver_id, "#{user.id}") %>
-        <%= submit_tag("Add #{user.first_name} #{user.last_name}")%>
-    <% end %>
-=======
     <%= render :partial =>'shared/friend_request', :locals => {:user=> user , :profile =>false} %>
->>>>>>> 781ee4809ee62336b6be538c3d9e4d67ba7dbb81
     </td>
     <br>
 </tr>
