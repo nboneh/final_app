@@ -1,0 +1,121 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+/* line 1, /home/saasbook/Documents/final_app/app/assets/stylesheets/custom.css.scss */
+.container {
+  position: relative;
+  padding: 0 0 0 100px;
+}
+
+/* line 2, /home/saasbook/Documents/final_app/app/assets/stylesheets/custom.css.scss */
+#sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  background: #FFF;
+}
+
+/* line 9, /home/saasbook/Documents/final_app/app/assets/stylesheets/custom.css.scss */
+#content {
+  border: 1px solid #000;
+  margin: 5px 0 5px 0;
+}
+
+/* line 12, /home/saasbook/Documents/final_app/app/assets/stylesheets/custom.css.scss */
+#footer {
+  border: 1px solid #000;
+  margin: 5px 0 0 0;
+  /* mixins, variables, etc. */
+  /* universal */
+  /* typography */
+  /* header */
+}
+/* line 23, /home/saasbook/Documents/final_app/app/assets/stylesheets/custom.css.scss */
+#footer html {
+  overflow-y: scroll;
+}
+/* line 27, /home/saasbook/Documents/final_app/app/assets/stylesheets/custom.css.scss */
+#footer body {
+  padding-top: 60px;
+}
+/* line 31, /home/saasbook/Documents/final_app/app/assets/stylesheets/custom.css.scss */
+#footer section {
+  overflow: auto;
+}
+/* line 35, /home/saasbook/Documents/final_app/app/assets/stylesheets/custom.css.scss */
+#footer textarea {
+  resize: vertical;
+}
+/* line 39, /home/saasbook/Documents/final_app/app/assets/stylesheets/custom.css.scss */
+#footer .center {
+  text-align: center;
+}
+/* line 41, /home/saasbook/Documents/final_app/app/assets/stylesheets/custom.css.scss */
+#footer .center h1 {
+  margin-bottom: 10px;
+}
+/* line 48, /home/saasbook/Documents/final_app/app/assets/stylesheets/custom.css.scss */
+#footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer h6 {
+  line-height: 1;
+}
+/* line 52, /home/saasbook/Documents/final_app/app/assets/stylesheets/custom.css.scss */
+#footer h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+/* line 59, /home/saasbook/Documents/final_app/app/assets/stylesheets/custom.css.scss */
+#footer h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+}
+/* line 68, /home/saasbook/Documents/final_app/app/assets/stylesheets/custom.css.scss */
+#footer p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+/* line 4, /home/saasbook/Documents/final_app/app/assets/stylesheets/shared.css.scss */
+#wall {
+  width: 300px;
+  word-wrap: break-word;
+}
+
+/* line 9, /home/saasbook/Documents/final_app/app/assets/stylesheets/shared.css.scss */
+textarea {
+  width: 300px;
+  height: 60px;
+  border: 3px solid #cccccc;
+  padding: 5px;
+  font-family: Tahoma, sans-serif;
+  background-image: url(bg.gif);
+  background-position: bottom right;
+  background-repeat: no-repeat;
+}
+/* line 4, /home/saasbook/Documents/final_app/app/assets/stylesheets/user.css.scss */
+#error {
+  color: #0000FF;
+  font-weight: bold;
+}
+
+/* line 8, /home/saasbook/Documents/final_app/app/assets/stylesheets/user.css.scss */
+#good {
+  color: #00FF00;
+  font-weight: bold;
+}
