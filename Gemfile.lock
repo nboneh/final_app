@@ -207,7 +207,7 @@ DEPENDENCIES
   haml
   jquery-rails
   launchy
-  pg (= 0.15.1)
+  pg
   protected_attributes
   rails (= 4.0.0)
   rails_12factor (= 0.0.2)
