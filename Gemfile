@@ -6,6 +6,7 @@ gem 'bcrypt-ruby', '3.0.0'
 gem 'protected_attributes'
 gem 'rails_best_practices'
 gem 'reek'
+gem 'capybara'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
@@ -14,7 +15,6 @@ group :development, :test do
   gem 'sqlite3'
   gem 'debugger'
   gem 'database_cleaner'
-  gem 'capybara'
   gem 'launchy'
   gem 'rspec-rails'
   gem 'factory_girl_rails', '4.2.1'
