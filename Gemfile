@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-ruby '2.0.0'
+ruby '1.9.3'
 
 gem 'railties', '4.0.0'
 gem 'rails', '4.0.0'
@@ -30,6 +30,8 @@ group :production do
   #  gem 'pg'
   gem 'pg'
   gem 'rails_12factor', '0.0.2'
+  gem 'thin'
+
 end
 
 # Gems used only for assets and not required
