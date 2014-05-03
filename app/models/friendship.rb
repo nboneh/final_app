@@ -3,19 +3,9 @@ class Friendship < ActiveRecord::Base
     belongs_to :receiver, :class_name => 'User', :foreign_key => 'receiver_fid'
     attr_accessible :status, :sender_id, :receiver_id
 
-<<<<<<< HEAD
-    def self.friends?(user1, user2)
-        my_friends=Friendship.find_by(:sender_id, user1)
-        my_friends=my_friends | Friendship.find_by(:sender_id, user2)
-        unless(my_friends.nil?) 
-               my_friends[:receiver_id] == user2 
-        else
-            return  false 
-=======
     def self.friendship_status(sender, receiver)
         if sender == receiver
             return "yourself"
->>>>>>> 781ee4809ee62336b6be538c3d9e4d67ba7dbb81
         end
         check1 =Friendship.where(sender_id: sender, receiver_id: receiver).first(1)[0]
     	if check1 != nil

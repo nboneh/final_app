@@ -12,7 +12,6 @@ class FriendshipsController < ApplicationController
     end
 
     def create
-<<<<<<< HEAD
         params[:status] = "pending"
         params[:sender_id] = current_user.id
         params.require(:receiver_id)
@@ -30,14 +29,8 @@ class FriendshipsController < ApplicationController
         else
             flash[:failed] = "You and #{params[:receiver_id]} are already friends"
             redirect_to findfriends_path
-=======
-       friendship =  Friendship.new(:status => "pending",
-            :sender_id => params[:sender_id],
-            :receiver_id =>params[:receiver_id])
-       friendship.save
-          redirect_to :back
->>>>>>> 781ee4809ee62336b6be538c3d9e4d67ba7dbb81
         end
+    end
 
     def update
         friendship_id=params[:id]
