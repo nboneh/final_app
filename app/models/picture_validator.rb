@@ -31,7 +31,7 @@ private
      return false
   end
   end
-  rescue Exception => e
+  rescue => e
    return false
   end
 end
