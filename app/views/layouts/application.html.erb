@@ -24,12 +24,12 @@
 <% unless @requestMessage.nil? %>
 <br>
 <font size ="2">
-<%= link_to "#{@requestMessage}",     preferences_path %> 
+<%= link_to "#{@requestMessage}",     preferences_path %>
 <% end %>
-</font> 
+</font>
 <li><%= link_to "Find Friends",    findfriends_path %></li>
 <li>
-<%= link_to "Preferences " ,     preferences_path %> 
+<%= link_to "Preferences " ,     preferences_path %>
 </li>
 <li><%= link_to "Logout",     login_path, :method => :delete %></li>
 </div>

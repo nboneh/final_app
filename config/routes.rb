@@ -8,7 +8,7 @@ FinalApp::Application.routes.draw do
 
   get "friendships/new"
 
-  
+
   resources :session, only: [:new, :create, :destroy]
   match '/login',  to: 'session#new',   via: 'get'
   match '/login', to: 'session#create', via: 'post'
@@ -21,7 +21,7 @@ FinalApp::Application.routes.draw do
   resources :posts
   match '/posts',  to: 'posts#create',   via: 'post'
   resources :friendships
- 
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

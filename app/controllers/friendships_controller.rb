@@ -5,7 +5,7 @@ class FriendshipsController < ApplicationController
         if(!name.nil?)
             @options = Array.new
             @options = @options | User.where(first_name: name)
-            @options = @options | User.where(last_name: name) 
+            @options = @options | User.where(last_name: name)
             @options = @options | User.where(email: name)
             #@options = @options - User.where(id: current_user.id)
         end

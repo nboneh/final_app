@@ -21,7 +21,7 @@
 <% @posts.each do |post| %>
 	<% user = User.find(post.sender_id) %>
 	<%=  link_to image_tag("#{user.picture}" , alt: "WallPost#{postNum}", width: "40", height: "25"), user_path(user)%>
-	
+
 	<%= link_to "#{user.first_name} #{user.last_name}:", user_path(user) %>
 	<br>
 
@@ -30,7 +30,7 @@
 	<br>
 	<font size ="1">
 	<%= "#{post.created_at}" %>
-	</font> 
+	</font>
 	</p>
 	 <% end %>
 	</div>

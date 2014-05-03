@@ -32,11 +32,11 @@ class UsersController < ApplicationController
   def newsfeed
     @requests = Friendship.where(receiver_id: current_user.id, status: "pending").count
     @requestMessage = "#{@requests.to_s} new friend request"
-    @requestMessage += "s" if @requests != 1 
+    @requestMessage += "s" if @requests != 1
     @post = flash[:post]
     prePosts = Post.where(:receiver_id=>0).order('created_at DESC')
     @posts = []
-    prePosts.each do |post| 
+    prePosts.each do |post|
       status = Friendship.friendship_status(current_user.id, post.sender_id)
       if status == "friends" or status == "yourself"
         @posts << post
@@ -72,7 +72,7 @@ class UsersController < ApplicationController
   def new
     if flash[:userReg] == nil
       @user = User.new(user_params)
-    else 
+    else
       @user = flash[:userReg]
     end
   end
