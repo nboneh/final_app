@@ -1,7 +1,7 @@
 module SessionHelper
 	def sign_in(user)
 	    remember_token = User.new_remember_token
-	    cookies.permanent[:remember_token] = {value: remember_token, 
+	    cookies.permanent[:remember_token] = {value: remember_token,
                                             expires: 1.month.from_now.utc}
 	    user.update_attribute(:remember_token, User.hash(remember_token))
 	    self.current_user = user
@@ -16,7 +16,7 @@ module SessionHelper
     def signed_in?
       !current_user.nil?
     end
-    
+
     def sign_out
       current_user.update_attribute(:remember_token,
                                     User.hash(User.new_remember_token))

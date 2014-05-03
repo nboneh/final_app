@@ -8,9 +8,9 @@ class PictureValidator < ActiveModel::Validator
   end
 end
 
-private 
+private
   def validPicture?(imgUrl)
-   
+
     if imgUrl == "user.png"
       return true;
     end
