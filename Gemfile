@@ -7,6 +7,9 @@ gem 'protected_attributes'
 gem 'rails_best_practices'
 gem 'reek'
 gem 'capybara'
+gem 'factory_girl_rails', '4.2.1'
+ gem 'launchy'
+ gem 'database_cleaner'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
@@ -14,10 +17,7 @@ gem 'capybara'
 group :development, :test do
   gem 'sqlite3'
   gem 'debugger'
-  gem 'database_cleaner'
-  gem 'launchy'
   gem 'rspec-rails'
-  gem 'factory_girl_rails', '4.2.1'
 end
 
 group :test do
